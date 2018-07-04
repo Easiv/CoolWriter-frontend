@@ -2,6 +2,14 @@
 
 module.exports = function(environment) {
   let ENV = {
+    firebase: {
+      apiKey: "AIzaSyBtASgBSgoXBkUPs7G9GhBlEV-47TnG9Fo",
+      authDomain: "coolwriter-3e7a6.firebaseapp.com",
+      databaseURL: "https://coolwriter-3e7a6.firebaseio.com",
+      projectId: "coolwriter-3e7a6",
+      storageBucket: "coolwriter-3e7a6.appspot.com",
+      messagingSenderId: "558808038143"
+    },
     modulePrefix: 'coolstore',
     environment,
     rootURL: '/',
