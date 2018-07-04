@@ -1,0 +1,34 @@
+<div id="nav">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
+    <a class="navbar-brand" href="#">CoolWriter</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link">{{#link-to 'index'}}Home{{/link-to}} <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"{{action "switchPage"}}>{{#link-to 'page.new'}}Write{{/link-to}}</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+      </form>
+    </div>
+  </nav>
+</div>
+   <main role="main" class="container">
+
+   </main>
+
+{{#ifRoute 'Home'}}
+  <br>
+  <h1 id = "tajtl"> Welcome to CoolWriter editor </h1>
+  <br>
+  <h2 id = "tajtlHelp"> Click write to begin </h2>
+{{/ifRoute}}
+
+
+{{outlet}}
