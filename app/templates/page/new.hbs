@@ -1,10 +1,10 @@
 {{outlet}}
 <button type="button" class="btn btn-info" id="buton" {{action "clearText"}}>Clear</button>
 <button type="button" class="btn btn-success" id="dobuton" {{action "changeFont"}}>Change Font</button>
-<button type="button" class="btn btn-warning" id="dobuton" {{action "highlight"}}>highlight</button>
+<button type="button" class="btn btn-warning" id="dobuton" class="highbutton" {{action "highlight"}}>highlight</button>
 Current font: <input id="fontInput">  {{fontVar.value "lol"}} {{textContent.length}}
 Current size: <input id="fontInput2">
 Highlight text: <input id="highlightInput" class="highlajt">
 <div class="container" id="jeden">
-  <p contenteditable="true" id="textArea" class="single-line">complex</p>
+  <p contenteditable="true" id="textArea">complex</p>
 </div>
