@@ -14,7 +14,7 @@ export default Controller.extend({
 
     clearText() {
       let textArea = document.querySelector("#textArea");
-      this.set.textArea.value = '';
+      textArea.value = '';
     },
 
     changeFont() {
