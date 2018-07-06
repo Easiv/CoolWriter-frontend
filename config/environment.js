@@ -10,6 +10,9 @@ module.exports = function(environment) {
       storageBucket: "coolwriter-3e7a6.appspot.com",
       messagingSenderId: "558808038143"
     },
+    torii: {
+      sessionServiceName: 'session'
+    },
     modulePrefix: 'coolstore',
     environment,
     rootURL: '/',
