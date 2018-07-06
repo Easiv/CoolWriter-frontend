@@ -13,6 +13,9 @@ module.exports = function(environment) {
     torii: {
       sessionServiceName: 'session'
     },
+    i18n: {
+      defaultLocale: 'pl'
+    },
     modulePrefix: 'coolstore',
     environment,
     rootURL: '/',
