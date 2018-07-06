@@ -8,8 +8,8 @@ module('Acceptance | page/new', function(hooks) {
   test('is it really highlighting tho', async function(assert) {
 
     await visit('/page/new');
-    await fillIn('input.highlajt', 'com');
-    await click('button.highbutton');
+    await fillIn('input#highlightInput', 'com');
+    await click('button#highbutton');
 
     //assert.ok(document.getElementById("textArea").classList.contains('mark'));
     assert.equal(find("#textArea").innerHTML, '<mark data-markjs="true">com</mark>plex');
