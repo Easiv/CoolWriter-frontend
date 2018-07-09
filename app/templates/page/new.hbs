@@ -2,9 +2,9 @@
 <button type="button" class="btn btn-info" id="buton" {{action "clearText"}}>{{t 'clear.text'}}</button>
 <button type="button" class="btn btn-success" id="dobuton" {{action "changeFont"}}>{{t 'change.font'}}</button>
 <button type="button" class="btn btn-warning" id="highbutton" {{action "highlight"}}>{{t 'highlight.text'}}</button>
-Current font: <input id="fontInput">  {{fontVar.value "lol"}} {{textContent.length}}
-Current size: <input id="fontInput2">
-Highlight text: <input id="highlightInput">
+{{t 'current.font'}}: <input id="fontInput">  {{fontVar.value "lol"}} {{textContent.length}}
+{{t 'font.size'}}: <input id="fontInput2">
+{{t 'highlighted.text'}}: <input id="highlightInput">
 <div class="container" id="jeden">
   <p contenteditable="true" id="textArea">complex</p>
 </div>

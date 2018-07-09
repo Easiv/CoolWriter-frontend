@@ -7,8 +7,7 @@ export default Route.extend({
   },
   actions: {
     signIn: function() {
-      this.get('session').open('firebase', { provider: 'google'}).then(function() { // function(data)
-      });
+      this.get('session').open('firebase', { provider: 'google'});
     },
     signOut: function() {
       this.get('session').close();
