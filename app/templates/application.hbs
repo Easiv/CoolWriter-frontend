@@ -6,19 +6,19 @@
     </button>
 
     {{#if session.isAuthenticated}}
-  Logged in as {{session.currentUser.displayName}}
-  <button {{action "signOut"}}>Sign out</button>
+  {{t 'logged.in.as'}} {{session.currentUser.displayName}}
+  <button {{action "signOut"}}> {{t 'sign.out'}} </button>
 {{else}}
-  <button {{action "signIn"}}>Sign in with Google</button>
+  <button {{action "signIn"}}> {{t 'sign.in.google'}} </button>
 {{/if}}
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link">{{#link-to 'index'}}Home{{/link-to}} <span class="sr-only">(current)</span></a>
+          <a class="nav-link">{{#link-to 'index'}} {{t 'home.page'}} {{/link-to}} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"{{action "switchPage"}}>{{#link-to 'page.new'}}Write{{/link-to}}</a>
+          <a class="nav-link"{{action "switchPage"}}>{{#link-to 'page.new'}} {{t 'write.text'}} {{/link-to}}</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -32,9 +32,9 @@
 
 {{#ifRoute 'Home'}}
   <br>
-  <h1 id = "tajtl"> Welcome to CoolWriter editor </h1>
+  <h1 id = "tajtl"> {{t 'welcome.to.coolwriter.editor'}} </h1>
   <br>
-  <h2 id = "tajtlHelp"> Click write to begin </h2>
+  <h2 id = "tajtlHelp"> {{t 'click.write.to.begin'}} </h2>
 {{/ifRoute}}
 
 
