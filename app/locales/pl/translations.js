@@ -11,5 +11,7 @@ export default {
   'click.write.to.begin': 'Kliknij Pisz aby rozpocząć',
   'current.font': 'Obecna Czcionka',
   'font.size': 'Rozmiar Czcionki',
-  'highlighted.text': 'Podświetlana fraza'
+  'highlighted.text': 'Podświetlana fraza',
+  'books.trans': 'Ksiazki',
+  'new.book': 'Nowa Ksiazka'
 };

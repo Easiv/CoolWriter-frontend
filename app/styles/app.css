@@ -12,6 +12,10 @@ mark {
     1px 1px 0 #000;
 }
 
+#newBook {
+  text-align: center;
+}
+
 #nav {
   /*margin-bottom: 50px;*/
 }

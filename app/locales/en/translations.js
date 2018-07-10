@@ -11,5 +11,7 @@ export default {
   'click.write.to.begin': 'Click Write to begin',
   'current.font': 'Current font',
   'font.size': 'Font Size',
-  'highlighted.text': 'Highlighted text'
+  'highlighted.text': 'Highlighted text',
+  'books.trans': 'Books',
+  'new.book': 'New Book'
 };

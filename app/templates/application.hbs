@@ -20,6 +20,11 @@
         <li class="nav-item">
           <a class="nav-link"{{action "switchPage"}}>{{#link-to 'page.new'}} {{t 'write.text'}} {{/link-to}}</a>
         </li>
+        {{#if session.isAuthenticated}}
+        <li class="nav-item">
+          <a class="nav-link"{{action "switchPage"}}>{{#link-to 'books'}} {{t 'books.trans'}} {{/link-to}}</a>
+        </li>
+        {{/if}}
       </ul>
       <form class="form-inline my-2 my-lg-0">
       </form>
@@ -30,7 +35,7 @@
 
    </main>
 
-{{#ifRoute 'Home'}}
+{{#ifRoute '/'}}
   <br>
   <h1 id = "tajtl"> {{t 'welcome.to.coolwriter.editor'}} </h1>
   <br>
