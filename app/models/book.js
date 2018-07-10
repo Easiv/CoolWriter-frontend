@@ -5,6 +5,6 @@ export default DS.Model.extend({
   author: DS.attr('string'),
   //creationDate: DS.attr('date'),
 
-  //pages: DS.hasMany('page'),
-  //users: DS.belongsTo('user')
+  pages: DS.hasMany('page'),
+  user: DS.belongsTo('user')
 });
