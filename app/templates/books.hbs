@@ -6,7 +6,7 @@
 <br>
 {{#each model as |book index|}}
   <p>
-    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}}
+    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}} &nbsp; <button {{action 'deleteBook' book}}> Delete </button>
     <br />
     <img src={{book.cover}}>
   </p>
