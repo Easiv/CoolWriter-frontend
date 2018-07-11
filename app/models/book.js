@@ -1,10 +1,10 @@
 import DS from 'ember-data';
 
-export default DS.Model.extend({
-  title: DS.attr('string'),
-  author: DS.attr('string'),
-  //creationDate: DS.attr('date'),
+const { attr, hasMany, belongsTo, Model } = DS;
 
-  //pages: DS.hasMany('page'),
-  //users: DS.belongsTo('user')
+export default Model.extend({
+  title: attr('string'),
+  author: attr('string'),
+  pages: hasMany('page'),
+  user: belongsTo('user')
 });

@@ -1,7 +1,7 @@
 body {
   background-color: lightgrey;
+  margin-top: 65px;
 }
-
 mark {
   background-color: lightblue;
   color: white;
@@ -11,20 +11,34 @@ mark {
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
-
-#newBook {
+.welcomeText {
+  font-family: Verdana;
+  color: white;
+  text-align: center;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.welcomeTextFont {
+  font-size: 70px;
+}
+.textCenter {
   text-align: center;
 }
-
-#nav {
-  /*margin-bottom: 50px;*/
+.flexSpace {
+  margin: 10px;
 }
-
-#fajnydiv {
-  font-size: 20px;
-  color: red;
+#pageButtons, #pageInputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+#loginInfo {
+  padding: 0 10px;
+  color: white;
+}
 #textArea {
   background-color: white;
   text-align: left;
@@ -35,65 +49,8 @@ mark {
   width: 550px;
   height:800px;
   white-space: pre-line;
-  overflow: hidden;
+  overflow-y: scroll;
   min-height: 40px;
   max-width: 550px;
   max-height: 800px;
-}
-
-#tajtl {
-  font-size: 70px;
-  font-family: Verdana;
-
-  color: white;
-  text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
-}
-
-#tajtlHelp {
-  font-family: Verdana;
-
-  color: white;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-
-#jeden {
-  align-self: center;
-}
-
-#dwa {
-  align-self: center;
-}
-
-#buton {
-   margin-left: 705px;
-   margin-top: 60px;
- }
-
- #dobuton {
-   margin-top: 60px;
- }
-
- #highbutton {
-   margin-top: 60px;
- }
-
- #highlajt {
-
- }
-
-#clearButton {
-  margin-top: 60px;
-}
-
-#fontInput {
-  margin-top: 60px;
-  margin-bottom: 0px;
 }
