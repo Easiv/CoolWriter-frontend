@@ -1,34 +1,37 @@
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
-    {{#link-to 'index'}}<span class="navbar-brand">CoolWriter</span> {{/link-to}}
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    {{#link-to 'index'}}
+      <span class="navbar-brand">CoolWriter</span>
+    {{/link-to}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          {{#link-to 'index'}} <span class="nav-link"> {{t 'home.page'}} </span> {{/link-to}}
+          {{#link-to 'index'}} <span class="nav-link">{{t 'home.page'}}</span>{{/link-to}}
         </li>
         <li class="nav-item">
-        {{#link-to 'page.new'}} <span class="nav-link"> {{t 'write.text'}} </span> {{/link-to}}
+          {{#link-to 'page.new'}}
+            <span class="nav-link">{{t 'write.text'}}</span>
+          {{/link-to}}
         </li>
         {{#if session.isAuthenticated}}
-        <li class="nav-item">
-        {{#link-to 'books'}} <span class="nav-link"> {{t 'books.trans'}} </span> {{/link-to}}
-        </li>
+          <li class="nav-item">
+            {{#link-to 'books'}}
+              <span class="nav-link">{{t 'books.trans'}}</span>
+            {{/link-to}}
+          </li>
         {{/if}}
       </ul>
 
       {{#if session.isAuthenticated}}
-    <span id='login-info'> {{t 'logged.in.as'}} {{session.currentUser.displayName}} </span>
-    <button {{action "signOut"}}> {{t 'sign.out'}} </button>
-  {{else}}
-    <button {{action "signIn"}}> {{t 'sign.in.google'}} </button>
-  {{/if}}
-
-      <form class="form-inline my-2 my-lg-0">
-      </form>
+        <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
+        <button {{action "signOut"}}> {{t 'sign.out'}}</button>
+      {{else}}
+        <button {{action "signIn"}}> {{t 'sign.in.google'}}</button>
+      {{/if}}
     </div>
   </nav>
 

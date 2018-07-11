@@ -8,7 +8,6 @@ export default Controller.extend({
         author: this.get('author')
       });
       newBook.save();
-      //this.transitionTo('books');
     }
   }
 });

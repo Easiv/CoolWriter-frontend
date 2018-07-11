@@ -13,5 +13,8 @@ export default {
   'font.size': 'Font Size',
   'highlighted.text': 'Highlighted text',
   'books.trans': 'Books',
-  'new.book': 'New Book'
+  'book.new': 'New Book',
+  'book.title': 'Title',
+  'book.author': 'Author',
+  'actions.create': 'Create'
 };

@@ -2,7 +2,6 @@ body {
   background-color: lightgrey;
   margin-top: 65px;
 }
-
 mark {
   background-color: lightblue;
   color: white;
@@ -12,30 +11,34 @@ mark {
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
-
-.offset-top {
-  margin-top: 60px;
-}
-
-#inputs {
-
-}
-
-#login-info {
-  padding: 0 10px;
+.welcomeText {
+  font-family: Verdana;
   color: white;
-
+  text-align: center;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
-
-#welcome, #newBook {
+.welcomeTextFont {
+  font-size: 70px;
+}
+.textCenter {
   text-align: center;
 }
-
-#fajnydiv {
-  font-size: 20px;
-  color: red;
+.flexSpace {
+  margin: 10px;
 }
-
+#pageButtons, #pageInputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#loginInfo {
+  padding: 0 10px;
+  color: white;
+}
 #textArea {
   background-color: white;
   text-align: left;
@@ -51,33 +54,3 @@ mark {
   max-width: 550px;
   max-height: 800px;
 }
-
-#tajtl {
-  font-size: 70px;
-  font-family: Verdana;
-
-  color: white;
-  text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
-}
-
-#tajtlHelp {
-  font-family: Verdana;
-  color: white;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-
-#jeden, #dwa {
-  align-self: center;
-}
-
-#buton {
-   margin-left: 705px;
- }

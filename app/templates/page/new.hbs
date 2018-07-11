@@ -1,12 +1,18 @@
 {{outlet}}
-<button type="button" class="btn btn-info offset-top" id="buton" {{action "clearText"}}>{{t 'clear.text'}}</button>
-<button type="button" class="btn btn-success offset-top" {{action "changeFont"}}>{{t 'change.font'}}</button>
-<button type="button" class="btn btn-warning offset-top" id="highbutton" {{action "highlight"}}>{{t 'highlight.text'}}</button>
-<span id="inputs">
-{{t 'current.font'}}: <input id="fontInput">  {{fontVar.value "lol"}} {{textContent.length}}
-{{t 'font.size'}}: <input id="fontInput2">
-{{t 'highlighted.text'}}: <input id="highlightInput">
-</span>
-<div class="container" id="jeden">
+<div id="pageButtons">
+  <span class="flexSpace">
+    <button type="button" class="btn btn-info" {{action "clearText"}}>{{t 'clear.text'}}</button>
+    <button type="button" class="btn btn-success" {{action "changeFont"}}>{{t 'change.font'}}</button>
+    <button type="button" class="btn btn-warning" id="highbutton" {{action "highlight"}}>{{t 'highlight.text'}}</button>
+  </span>
+</div>
+<div id="pageInputs">
+  <span class="flexSpace">
+    {{t 'current.font'}}: <input id="fontFamily">
+    {{t 'font.size'}}: <input id="fontSize">
+    {{t 'highlighted.text'}}: <input id="highlightInput">
+  </span>
+</div>
+<div class="container">
   <p contenteditable="true" id="textArea">complex</p>
 </div>
