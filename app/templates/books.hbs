@@ -6,8 +6,9 @@
 <br>
 {{#each model as |book index|}}
   <p>
-    <b>{{increment index}}.</b> {{t 'book.title'}}: {{book.title}},
-    {{t 'book.author'}}: {{book.author}}
+    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}}
+    <br />
+    <img src={{book.cover}}>
   </p>
 {{/each}}
 {{outlet}}
