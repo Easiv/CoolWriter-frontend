@@ -1,0 +1,12 @@
+{{outlet}}
+
+<h2 class="textCenter">{{t 'book.new'}}</h2>
+<form>
+  <div class="form-group">
+    {{input value=title placeholder=(t 'book.title') class="form-control" id="titleInput"}}
+  </div>
+  <div class="form-group">
+    {{input value=author placeholder=(t 'book.author') class="form-control" id="authorInput"}}
+  </div>
+  <button {{action "createBook"}} class="btn btn-default">{{t 'actions.create'}}</button>
+</form>

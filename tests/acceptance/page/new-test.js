@@ -11,9 +11,6 @@ module('Acceptance | page/new', function(hooks) {
     await fillIn('input#highlightInput', 'com');
     await click('button#highbutton');
 
-    //assert.ok(document.getElementById("textArea").classList.contains('mark'));
-    assert.equal(find("#textArea").innerHTML, '<mark data-markjs="true">com</mark>plex');
-    // assert.ok(document.getElementById("textArea").contains('instance.mark(input)'))
-    //assert.equal(document.getElementById("textArea").value.style)
+    assert.equal(find('#textArea').innerHTML, '<mark data-markjs="true">com</mark>plex');
   });
 });
