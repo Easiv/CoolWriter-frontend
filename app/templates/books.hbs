@@ -1,7 +1,13 @@
-<br>
-<br>
-<br>
 
 {{#link-to 'books.new'}} <button> {{t 'book.new'}} </button> {{/link-to}}
+<br>
+<br>
+<br>
+{{#each model as |book index|}}
+<p>
+  {{index}}. {{t 'book.title'}}: {{book.title}},
+  {{t 'book.author'}}: {{book.author}}
+</p>
+{{/each}}
 
 {{outlet}}
