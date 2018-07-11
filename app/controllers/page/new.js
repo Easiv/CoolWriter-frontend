@@ -10,22 +10,22 @@ export default Controller.extend({
 
   actions: {
     clearText() {
-      let textArea = document.querySelector("#textArea");
+      let textArea = document.querySelector('#textArea');
       textArea.value = '';
     },
     changeFont() {
-      let textArea = document.querySelector("#textArea");
-      let fontVar = document.querySelector("#fontFamily").value;
-      let fontSize = document.querySelector("#fontSize").value;
+      let textArea = document.querySelector('#textArea');
+      let fontVar = document.querySelector('#fontFamily').value;
+      let fontSize = document.querySelector('#fontSize').value;
       textArea.style.fontFamily = fontVar;
-      textArea.style.fontSize = fontSize + "px";
+      textArea.style.fontSize = `${fontSize}px`;
     },
     highlight() {
-      let input = document.querySelector("#highlightInput").value;
-      let context = document.querySelector("#textArea");
+      let input = document.querySelector('#highlightInput').value;
+      let context = document.querySelector('#textArea');
       let instance = new Mark(context);
 
-      if(this.get('lighted')) {
+      if (this.get('lighted')) {
         instance.unmark();
         this.switchLight();
       } else {
