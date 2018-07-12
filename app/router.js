@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('books', function() {
     this.route('new');
   });
+  this.route('users');
 });
 
 export default Router;
