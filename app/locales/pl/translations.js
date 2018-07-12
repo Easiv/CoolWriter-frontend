@@ -17,5 +17,6 @@ export default {
   'book.title': 'Tytuł',
   'book.author': 'Autor',
   'actions.create': 'Stwórz',
-  'book.cover': 'Tu wklej URL okładki'
+  'book.cover': 'Tu wklej URL okładki',
+  'img.display.fail': 'Nie udało się załadować obrazka'
 };

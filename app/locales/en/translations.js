@@ -17,5 +17,6 @@ export default {
   'book.title': 'Title',
   'book.author': 'Author',
   'actions.create': 'Create',
-  'book.cover': 'Paste image URL here'
+  'book.cover': 'Paste image URL here',
+  'img.display.fail': 'Could not load the image'
 };
