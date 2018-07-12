@@ -11,7 +11,8 @@
   <div class="form-group">
     {{input value=cover placeholder=(t 'book.cover') class="form-control"}}
   </div>
-  <img src={{cover}} alt={{t 'image.display.fail'}}>
-  <br />
+  <img src={{cover}} alt={{t 'image.display.fail'}} width='200' height='300'>
+  <br />  
   <button {{action "createBook"}} class="btn btn-default">{{t 'actions.create'}}</button>
+  <br />
 </form>
