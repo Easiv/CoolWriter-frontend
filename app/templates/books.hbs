@@ -1,18 +1,21 @@
 
 {{#link-to 'books.new'}}
-  <button>{{t 'book.new'}}</button>
+  {{#paper-button raised=true}}{{paper-icon 'book'}} {{t 'book.new'}}{{/paper-button}}
 {{/link-to}}
 <br>
 <br>
 {{#each model as |book index|}}
   <p>
-    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}} &nbsp; <button {{action 'deleteBook' book}}> {{t 'actions.delete'}} </button>
-    <button {{action 'editBook' book}}> <span class="glyphicon glyphicon-trash"> {{t 'actions.edit'}} </span> </button>
-    <span class='glyphicon glyphicon-trash' aria-hidden="true"></span>
+    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}}
+    {{#paper-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}
+    {{#paper-button iconButton=true raised=true onClick=(action 'editBook' book)}}{{paper-icon 'edit'}}{{/paper-button}}
     <br />
     <img src={{book.cover}} width="200" height="300">
   </p>
 {{/each}}
 <div class='outletMargin'>
   {{outlet}}
+
+  <i class="fa fa-trash" aria-hidden="true"></i>
+
 </div>
