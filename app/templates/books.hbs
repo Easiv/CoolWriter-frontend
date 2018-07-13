@@ -1,7 +1,16 @@
-<br>
-<br>
-<br>
 
-{{#link-to 'books.new'}} <button> {{t 'book.new'}} </button> {{/link-to}}
-
-{{outlet}}
+{{#link-to 'books.new'}}
+  <button>{{t 'book.new'}}</button>
+{{/link-to}}
+<br>
+<br>
+{{#each model as |book index|}}
+  <p>
+    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}} &nbsp; <button {{action 'deleteBook' book}}> {{t 'actions.delete'}} </button>
+    <br />
+    <img src={{book.cover}} width="200" height="300">
+  </p>
+{{/each}}
+<div class='outletMargin'>
+  {{outlet}}
+</div>

@@ -30,6 +30,9 @@ mark {
 .flexSpace {
   margin: 10px;
 }
+.outletMargin {
+  padding: 50px;
+}
 #pageButtons, #pageInputs {
   display: flex;
   align-items: center;
@@ -47,7 +50,7 @@ mark {
   border: solid 1px black;
   border-radius: 5px;
   width: 550px;
-  height:800px;
+  height: 800px;
   white-space: pre-line;
   overflow-y: scroll;
   min-height: 40px;
