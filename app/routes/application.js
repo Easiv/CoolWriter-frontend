@@ -23,7 +23,10 @@ export default Route.extend(FindQuery, {
 
   actions: {
     signIn() {
-      this.get('session').open('firebase', { provider: 'google' }).then((data) => this._createUser(data));
+      this.get('session').open('firebase', { provider: 'google' }).then((data) => {
+        this.get('session.currentUser').save();
+      }
+      );
     },
 
     signOut() {

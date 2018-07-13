@@ -19,5 +19,6 @@ export default {
   'actions.create': 'Stwórz',
   'book.cover': 'Tu wklej URL okładki',
   'image.display.fail': 'Nie udało się załadować obrazka',
-  'actions.delete': 'Usuń'
+  'actions.delete': 'Usuń',
+  'actions.edit': 'Edytuj'
 };

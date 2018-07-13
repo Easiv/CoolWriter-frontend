@@ -19,5 +19,6 @@ export default {
   'actions.create': 'Create',
   'book.cover': 'Paste image URL here',
   'img.display.fail': 'Could not load the image',
-  'actions.delete': 'Usuń'
+  'actions.delete': 'Delete',
+  'actions.edit': 'Edit'
 };
