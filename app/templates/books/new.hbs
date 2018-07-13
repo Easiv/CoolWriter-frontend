@@ -12,7 +12,22 @@
     {{input value=cover placeholder=(t 'book.cover') class="form-control"}}
   </div>
   <img src={{cover}} alt={{t 'image.display.fail'}} width='200' height='300'>
-  <br />  
+  <br />
   <button {{action "createBook"}} class="btn btn-default">{{t 'actions.create'}}</button>
   <br />
 </form>
+
+{{#paper-form as |form|}}
+  <div class="layout-row">
+    <div class="layout-column flex-50">
+      {{form.input label="First Name" value=firstName onChange=(action (mut firstName)) required=true}}
+      {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}}
+    </div>
+    <div class="layout-column flex-50">
+      {{form.input type="number" label="Age" value=age onChange=(action (mut age)) required=true}}
+    </div>
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+  </div>
+{{/paper-form}}

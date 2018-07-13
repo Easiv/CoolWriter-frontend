@@ -1,40 +1,40 @@
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    {{#link-to 'index'}}
-      <span class="navbar-brand">CoolWriter</span>
-    {{/link-to}}
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+{{#paper-toolbar as |toolbar|}}
+   {{#toolbar.tools}}
+     {{#link-to 'index'}}
+       <h2>CoolWriter</h2>
+     {{/link-to}}
 
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          {{#link-to 'index'}} <span class="nav-link">{{t 'home.page'}}</span>{{/link-to}}
-        </li>
-        <li class="nav-item">
-          {{#link-to 'page.new'}}
-            <span class="nav-link">{{t 'write.text'}}</span>
-          {{/link-to}}
-        </li>
-        {{#if session.isAuthenticated}}
-          <li class="nav-item">
-            {{#link-to 'books'}}
-              <span class="nav-link">{{t 'books.trans'}}</span>
-            {{/link-to}}
-          </li>
-        {{/if}}
-      </ul>
+     {{#link-to 'page.new'}}
+       {{#paper-button}}{{t 'write.text'}}{{/paper-button}}
+     {{/link-to}}
 
-      {{#if session.isAuthenticated}}
-        <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
-        <button {{action "signOut"}}> {{t 'sign.out'}}</button>
-      {{else}}
-        <button {{action "signIn"}}> {{t 'sign.in.google'}}</button>
-      {{/if}}
-    </div>
-  </nav>
+     {{#if session.isAuthenticated}}
+         {{#link-to 'books'}}
+           {{#paper-button}}{{t 'books.trans'}}{{/paper-button}}
+         {{/link-to}}
+     {{/if}}
 
-  <main role="main" class="container-fluid">
+     <span class="flex"></span>
+
+     {{#if session.isAuthenticated}}
+       <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
+
+       {{#paper-button raised=true onClick=(action 'signOut')}}{{t 'sign.out'}}{{/paper-button}}
+     {{else}}
+       {{#paper-button raised=true onClick=(action 'signIn')}}{{t 'sign.in.google'}}{{/paper-button}}
+     {{/if}}
+
+   {{/toolbar.tools}}
+ {{/paper-toolbar}}
+
+  <main>
      {{outlet}}
   </main>
+
+  {{#paper-form}}
+  <div class="layout-row">
+    {{form.input label="Favorite Letter" value=favoriteLetter onChange=(action (mut favoriteLetter)) required=true maxlength=1}}
+  </div>
+  <div class="layout-row">
+  </div>
+{{/paper-form}}

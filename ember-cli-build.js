@@ -8,7 +8,7 @@ module.exports = function(defaults) {
       extension: 'sass'
     }
   });
-  app.import('node_modules/bootstrap/dist/css/bootstrap.css');
+  // app.import('node_modules/bootstrap/dist/css/bootstrap.css');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

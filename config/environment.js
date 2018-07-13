@@ -16,7 +16,7 @@ module.exports = function(environment) {
     i18n: {
       defaultLocale: 'pl'
     },
-    modulePrefix: 'coolstore',
+    modulePrefix: 'coolwriter',
     environment,
     rootURL: '/',
     locationType: 'auto',
