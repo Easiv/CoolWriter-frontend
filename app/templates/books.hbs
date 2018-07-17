@@ -1,4 +1,3 @@
-
 {{#link-to 'books.new'}}
   {{#paper-button raised=true}}
     {{paper-icon 'book'}}
@@ -7,18 +6,34 @@
 {{/link-to}}
 <br>
 <br>
+
 {{#each model as |book index|}}
-  <p>
-    <b>{{increment index}}. <i>"{{book.title}}"</i></b> - {{book.author}}
-    {{#paper-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}
-    {{#paper-button iconButton=true raised=true onClick=(action 'editBook' book)}}{{paper-icon 'edit'}}{{/paper-button}}
-    <br />
-    <img src={{book.cover}} width="200" height="300">
-  </p>
+  <div class="layout-row layout-xs-column">
+    <div class="layout-column flex-xs flex-gt-xs-20">
+      {{#paper-card as |card|}}
+        {{card.image src=book.cover alt=(t 'image.display.fail') title=book.title}}
+        {{#card.title as |title|}}
+          {{#title.text as |text|}}
+            {{#text.headline}}{{book.title}}{{/text.headline}}
+            {{#text.subhead}}{{book.author}}{{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        {{#card.content}}
+          <p>
+            <i>
+              tu bedzie description ex dee
+            </i>
+          </p>
+        {{/card.content}}
+        {{#card.actions}}
+          {{#paper-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}
+          {{#paper-button iconButton=true raised=true onClick=(action 'editBook' book)}}{{paper-icon 'edit'}}{{/paper-button}}
+        {{/card.actions}}
+      {{/paper-card}}
+    </div>
+  </div>
 {{/each}}
+
 <div class='outletMargin'>
   {{outlet}}
-
-  <i class="fa fa-trash" aria-hidden="true"></i>
-
 </div>
