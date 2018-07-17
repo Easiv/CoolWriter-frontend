@@ -1,9 +1,9 @@
 {{outlet}}
 <div id="pageButtons">
   <span class="flexSpace">
-    <button type="button" class="btn btn-info" {{action "clearText"}}>{{t 'clear.text'}}</button>
-    <button type="button" class="btn btn-success" {{action "changeFont"}}>{{t 'change.font'}}</button>
-    <button type="button" class="btn btn-warning" id="highbutton" {{action "highlight"}}>{{t 'highlight.text'}}</button>
+    {{#paper-button raised=true onClick=(action 'clearText')}}{{t 'clear.text'}}{{/paper-button}}
+    {{#paper-button raised=true onClick=(action 'changeFont')}}{{t 'change.font'}}{{/paper-button}}
+    {{#paper-button raised=true onClick=(action 'highlight') id="highbutton"}}{{t 'highlight.text'}}{{/paper-button}}
   </span>
 </div>
 <div id="pageInputs">

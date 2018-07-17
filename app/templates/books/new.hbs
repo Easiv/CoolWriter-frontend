@@ -1,33 +1,18 @@
 {{outlet}}
 
 <h2 class="textCenter">{{t 'book.new'}}</h2>
-<form>
-  <div class="form-group">
-    {{input value=title placeholder=(t 'book.title') class="form-control"}}
-  </div>
-  <div class="form-group">
-    {{input value=author placeholder=(t 'book.author') class="form-control"}}
-  </div>
-  <div class="form-group">
-    {{input value=cover placeholder=(t 'book.cover') class="form-control"}}
-  </div>
-  <img src={{cover}} alt={{t 'image.display.fail'}} width='200' height='300'>
-  <br />
-  <button {{action "createBook"}} class="btn btn-default">{{t 'actions.create'}}</button>
-  <br />
-</form>
 
 {{#paper-form as |form|}}
   <div class="layout-row">
     <div class="layout-column flex-50">
-      {{form.input label="First Name" value=firstName onChange=(action (mut firstName)) required=true}}
-      {{form.input label="Last Name" value=lastName onChange=(action (mut lastName))}}
+      {{form.input label=(t 'book.title') value=title onChange=(action (mut title)) required=true}}
+      {{form.input label=(t 'book.cover') value=cover onChange=(action (mut cover))}}
     </div>
     <div class="layout-column flex-50">
-      {{form.input type="number" label="Age" value=age onChange=(action (mut age)) required=true}}
+      {{form.input label=(t 'book.author') value=author onChange=(action (mut author)) required=true}}
     </div>
   </div>
   <div class="layout-row">
-    {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+    {{#form.submit-button raised=true primary=true onClick=(action 'createBook')}}{{t 'actions.create'}}{{/form.submit-button}}
   </div>
 {{/paper-form}}

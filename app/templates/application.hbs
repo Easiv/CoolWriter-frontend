@@ -1,31 +1,32 @@
-{{#paper-toolbar as |toolbar|}}
-   {{#toolbar.tools}}
-     {{#link-to 'index'}}
-       <h2>CoolWriter</h2>
-     {{/link-to}}
 
-     {{#link-to 'page.new'}}
-       {{#paper-button}}{{t 'write.text'}}{{/paper-button}}
-     {{/link-to}}
+  {{#paper-toolbar as |toolbar|}}
+     {{#toolbar.tools}}
+       {{#link-to 'index'}}
+         <h2>CoolWriter</h2>
+       {{/link-to}}
 
-     {{#if session.isAuthenticated}}
-         {{#link-to 'books'}}
-           {{#paper-button}}{{t 'books.trans'}}{{/paper-button}}
-         {{/link-to}}
-     {{/if}}
+       {{#link-to 'page.new'}}
+         {{#paper-button raised=true}}{{t 'write.text'}}{{/paper-button}}
+       {{/link-to}}
 
-     <span class="flex"></span>
+       {{#if session.isAuthenticated}}
+           {{#link-to 'books'}}
+             {{#paper-button raised=true}}{{t 'books.trans'}}{{/paper-button}}
+           {{/link-to}}
+       {{/if}}
 
-     {{#if session.isAuthenticated}}
-       <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
+       <span class="flex"></span>
 
-       {{#paper-button raised=true onClick=(action 'signOut')}}{{t 'sign.out'}}{{/paper-button}}
-     {{else}}
-       {{#paper-button raised=true onClick=(action 'signIn')}}{{t 'sign.in.google'}}{{/paper-button}}
-     {{/if}}
+       {{#if session.isAuthenticated}}
+         <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
 
-   {{/toolbar.tools}}
- {{/paper-toolbar}}
+         {{#paper-button raised=true onClick=(action 'signOut')}}{{t 'sign.out'}}{{/paper-button}}
+       {{else}}
+         {{#paper-button raised=true onClick=(action 'signIn')}}{{t 'sign.in.google'}}{{/paper-button}}
+       {{/if}}
+
+     {{/toolbar.tools}}
+   {{/paper-toolbar}}
 
   <main>
      {{outlet}}
