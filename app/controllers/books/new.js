@@ -6,7 +6,8 @@ export default Controller.extend({
       let newBook = this.store.createRecord('book', {
         title: this.get('title'),
         author: this.get('author'),
-        cover: this.get('cover')
+        cover: this.get('cover'),
+        description: this.get('description')
       });
       newBook.save();
     }
