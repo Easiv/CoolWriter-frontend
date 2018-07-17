@@ -1,4 +1,6 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 import Mark from 'mark.js';
 
 export default Controller.extend({
@@ -8,20 +10,23 @@ export default Controller.extend({
     this.toggleProperty('lighted');
   },
 
+  textAreaStyle: computed('family', 'size', function() {
+    return htmlSafe(`font-family: '${this.get('family') || 'Roboto'}'; font-size: ${this.get('size') || 16}px;`);
+  }),
+
   actions: {
+    mutFamily(value) {
+      this.set('family', value.replace(/[^\w ]/, ''));
+    },
+    mutSize(value) {
+      this.set('size', value.replace(/\D/, ''));
+    },
     clearText() {
       let textArea = document.querySelector('#textArea');
-      textArea.value = '';
-    },
-    changeFont() {
-      let textArea = document.querySelector('#textArea');
-      let fontVar = document.querySelector('#fontFamily').value;
-      let fontSize = document.querySelector('#fontSize').value;
-      textArea.style.fontFamily = fontVar;
-      textArea.style.fontSize = `${fontSize}px`;
+      textArea.innerHTML = '';
     },
     highlight() {
-      let input = document.querySelector('#highlightInput').value;
+      let input = this.get('highlightText');
       let context = document.querySelector('#textArea');
       let instance = new Mark(context);
 

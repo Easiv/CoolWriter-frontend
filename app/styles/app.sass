@@ -1,4 +1,4 @@
-$primary: "teal"
+$primary: "brown"
 $accent: "green"
 @import 'ember-paper'
 
@@ -8,11 +8,14 @@ body
 mark
   background-color: lightblue
   color: white
-  text-shadow: -3px -3px 0 #000
+  text-shadow: 0 0 5px #000
 
 main
   margin-left: 20px
   margin-left: 20px
+
+.container
+  position: relative
 
 .welcomeText
   font-family: Verdana
@@ -32,6 +35,9 @@ main
 .outletMargin
   padding: 50px
 
+.srodek
+  align-self: center
+
 #pageButtons, #pageInputs
   display: flex
   align-items: center
@@ -42,16 +48,17 @@ main
   color: white
 
 #textArea
-  background-color: white
-  text-align: left
-  margin-top: 5px
-  margin-left: 300px
-  border: solid 1px black
-  border-radius: 5px
-  width: 550px
-  height: 800px
+  padding: 0 5px
+  border-left: 1px solid #a003
+  border-right: 1px solid #a003
+  position: absolute
+  left: 18%
+  top: 5%
+  width: 30%
+  height: 85%
+  background-color: transparent
   white-space: pre-line
   overflow-y: scroll
-  min-height: 40px
-  max-width: 550px
-  max-height: 800px
+  text-align: left
+  &:focus
+    outline: none
