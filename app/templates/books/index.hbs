@@ -1,0 +1,35 @@
+{{#link-to 'books.new'}}
+  {{#paper-button raised=true}}
+    {{paper-icon 'book'}}
+    {{t 'book.new'}}
+  {{/paper-button}}
+{{/link-to}}
+<br>
+<br>
+
+{{#each model as |book index|}}
+  <div class="layout-row layout-xs-column">
+    <div class="layout-column flex-xs flex-gt-xs-20">
+      {{#paper-card as |card|}}
+        {{card.image src=book.cover alt=(t 'image.display.fail') title=book.title}}
+        {{#card.title as |title|}}
+          {{#title.text as |text|}}
+            {{#text.headline}}{{book.title}}{{/text.headline}}
+            {{#text.subhead}}{{book.author}}{{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        {{#card.content}}
+          <p>
+            <i>
+              {{book.description}}
+            </i>
+          </p>
+        {{/card.content}}
+        {{#card.actions}}
+          {{#paper-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}
+          {{#link-to 'books.book.edit' book}}{{#paper-button iconButton=true raised=true}}{{paper-icon 'edit'}}{{/paper-button}}{{/link-to}}
+        {{/card.actions}}
+      {{/paper-card}}
+    </div>
+  </div>
+{{/each}}

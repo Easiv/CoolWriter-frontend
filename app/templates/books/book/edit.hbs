@@ -1,0 +1,20 @@
+{{outlet}}
+
+<h2 class="textCenter">{{t 'book.edit'}}</h2>
+
+{{#paper-form as |form|}}
+  <div class="layout-row">
+    <div class="layout-column flex-50">
+      {{form.input label=(t 'book.title') value=model.title onChange=(action (mut model.title)) required=true}}
+      {{form.input label=(t 'book.cover') value=model.cover onChange=(action (mut model.cover))}}
+    </div>
+    <div class="layout-column flex-50">
+      {{form.input label=(t 'book.author') value=model.author onChange=(action (mut model.author)) required=true}}
+      {{form.input label=(t 'book.desc') value=model.description onChange=(action (mut model.description))}}
+    </div>
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button raised=true primary=true onClick=(action 'saveBook')}}{{t 'actions.edit'}}{{/form.submit-button}}
+    {{#link-to 'books.index'}}{{#paper-button primary=true}}{{t 'actions.back'}}{{/paper-button}}{{/link-to}}
+  </div>
+{{/paper-form}}

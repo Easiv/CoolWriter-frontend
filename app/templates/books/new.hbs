@@ -15,5 +15,6 @@
   </div>
   <div class="layout-row">
     {{#form.submit-button raised=true primary=true onClick=(action 'createBook')}}{{t 'actions.create'}}{{/form.submit-button}}
+    {{#link-to 'books.index'}}{{#paper-button primary=true}}Cofnij{{/paper-button}}{{/link-to}}
   </div>
 {{/paper-form}}

@@ -21,5 +21,8 @@ export default {
   'img.display.fail': 'Could not load the image',
   'actions.delete': 'Delete',
   'actions.edit': 'Edit',
-  'book.desc': 'Description'
+  'book.desc': 'Description',
+  'actions.back': 'Go Back',
+  'actions.save': 'Zapisz',
+  'book.edit': 'Edytuj książkę'
 };
