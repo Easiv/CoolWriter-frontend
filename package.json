@@ -49,10 +49,10 @@
     "eslint-plugin-ember-suave": "^1.0.0",
     "loader.js": "^4.7.0",
     "mark.js": "^8.11.1",
-    "torii": "^0.10.1"
+    "torii": "^0.10.1",
+    "ember-template-lint": "^0.8.22"
   },
   "dependencies": {
-    "ember-template-lint": "^0.8.22",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
   }
