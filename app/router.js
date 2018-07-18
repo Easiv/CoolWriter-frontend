@@ -13,7 +13,7 @@ Router.map(function() {
   this.route('books', function() {
     this.route('new');
     this.route('book', { path: '/:book_id' }, function() {
-    this.route('edit');
+      this.route('edit');
     });
   });
   this.route('users');

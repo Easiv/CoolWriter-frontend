@@ -6,12 +6,15 @@ import Mark from 'mark.js';
 export default Controller.extend({
 
   lighted: false,
+  family: 'Roboto',
+  size: 16,
+
   switchLight() {
     this.toggleProperty('lighted');
   },
 
   textAreaStyle: computed('family', 'size', function() {
-    return htmlSafe(`font-family: '${this.get('family') || 'Roboto'}'; font-size: ${this.get('size') || 16}px;`);
+    return htmlSafe(`font-family: '${this.get('family')}'; font-size: ${this.get('size')}px;`);
   }),
 
   actions: {

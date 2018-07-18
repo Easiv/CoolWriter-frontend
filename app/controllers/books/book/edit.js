@@ -9,7 +9,6 @@ export default Controller.extend({
       this.get('model').save().then(() => {
         this.get('routing').transitionTo('books.index', []);
       });
-
     }
   }
 });
