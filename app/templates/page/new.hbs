@@ -9,11 +9,11 @@
   <span class="flexSpace">
     {{paper-input label=(t 'current.font') value=family onChange=(action "mutFamily") icon="font_download" id="fontFamily"}}
     {{paper-input label=(t 'font.size') value=size onChange=(action "mutSize") icon="format_size" id="fontSize"}}
-    {{paper-input label=(t 'highlighted.text') value=highlightText onChange=(action (mut highlightText)) icon="highlight" id="highlightInput"}}
+    {{paper-input label=(t 'highlighted.text') value=highlightText onChange=(action (mut highlightText)) icon="highlight"}}
   </span>
 </div>
 
 <div class="layout-row layout-align-center-start container">
   <img src="/bookImage.png" width="80%">
-  <span contenteditable="true" id="textArea" style={{textAreaStyle}}>complex</span>
+  <span contenteditable="true" id="textArea" style={{textAreaStyle}}></span>
   </div>
