@@ -1,41 +1,47 @@
+{{#paper-toolbar as |toolbar|}}
+   {{#toolbar.tools}}
+     {{#link-to 'index'}}
+       <h2>CoolWriter</h2>
+     {{/link-to}}
 
-  {{#paper-toolbar as |toolbar|}}
-     {{#toolbar.tools}}
-       {{#link-to 'index'}}
-         <h2>CoolWriter</h2>
-       {{/link-to}}
+     {{#link-to 'page.new'}}
+        {{#paper-button raised=true}}
+          {{t 'write.text'}}
+        {{/paper-button}}
+     {{/link-to}}
 
-       {{#link-to 'page.new'}}
-         {{#paper-button raised=true}}{{t 'write.text'}}{{/paper-button}}
-       {{/link-to}}
+     {{#if session.isAuthenticated}}
+        {{#link-to 'books'}}
+          {{#paper-button raised=true}}
+            {{t 'books.trans'}}
+          {{/paper-button}}
+        {{/link-to}}
+     {{/if}}
 
-       {{#if session.isAuthenticated}}
-           {{#link-to 'books'}}
-             {{#paper-button raised=true}}{{t 'books.trans'}}{{/paper-button}}
-           {{/link-to}}
-       {{/if}}
+     <span class="flex"></span>
 
-       <span class="flex"></span>
+     {{#if session.isAuthenticated}}
+      <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
 
-       {{#if session.isAuthenticated}}
-         <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
+      {{#paper-button raised=true onClick=(action 'signOut')}}
+        {{t 'sign.out'}}
+      {{/paper-button}}
+     {{else}}
+      {{#paper-button raised=true onClick=(action 'signIn')}}
+        {{t 'sign.in.google'}}
+      {{/paper-button}}
+     {{/if}}
 
-         {{#paper-button raised=true onClick=(action 'signOut')}}{{t 'sign.out'}}{{/paper-button}}
-       {{else}}
-         {{#paper-button raised=true onClick=(action 'signIn')}}{{t 'sign.in.google'}}{{/paper-button}}
-       {{/if}}
+   {{/toolbar.tools}}
+ {{/paper-toolbar}}
 
-     {{/toolbar.tools}}
-   {{/paper-toolbar}}
+<main>
+   {{outlet}}
+</main>
 
-  <main>
-     {{outlet}}
-  </main>
-
-  {{#paper-form}}
+{{#paper-form}}
   <div class="layout-row">
     {{form.input label="Favorite Letter" value=favoriteLetter onChange=(action (mut favoriteLetter)) required=true maxlength=1}}
   </div>
-  <div class="layout-row">
-  </div>
+  <div class="layout-row"></div>
 {{/paper-form}}
