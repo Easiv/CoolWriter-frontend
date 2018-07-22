@@ -7,16 +7,16 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('page', function() {
-    this.route('new');
+  this.authenticatedRoute('page', function() {
+    this.authenticatedRoute('new');
   });
-  this.route('books', function() {
-    this.route('new');
-    this.route('book', { path: '/:book_id' }, function() {
-      this.route('edit');
+  this.authenticatedRoute('books', function() {
+    this.authenticatedRoute('new');
+    this.authenticatedRoute('book', { path: '/:book_id' }, function() {
+      this.authenticatedRoute('edit');
     });
   });
-  this.route('users');
+  this.authenticatedRoute('users');
 });
 
 export default Router;
