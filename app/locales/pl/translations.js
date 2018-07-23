@@ -24,5 +24,6 @@ export default {
   'book.desc': 'Opis',
   'actions.back': 'Cofnij',
   'actions.save': 'Zapisz',
-  'book.edit': 'Edytuj książkę'
+  'book.edit': 'Edytuj książkę',
+  'delete.confirm': 'Czy na pewno chcesz usunąć tę książkę?'
 };

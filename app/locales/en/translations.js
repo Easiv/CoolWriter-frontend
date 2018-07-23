@@ -23,6 +23,7 @@ export default {
   'actions.edit': 'Edit',
   'book.desc': 'Description',
   'actions.back': 'Go Back',
-  'actions.save': 'Zapisz',
-  'book.edit': 'Edytuj książkę'
+  'actions.save': 'Save',
+  'book.edit': 'Edit',
+  'delete.confirm': 'Do you want delete this book?'
 };
