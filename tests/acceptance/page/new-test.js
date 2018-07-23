@@ -5,12 +5,37 @@ import { setupApplicationTest } from 'ember-qunit';
 module('Acceptance | page/new', function(hooks) {
   setupApplicationTest(hooks);
 
-  test('is it really highlighting tho', async function(assert) {
+  test('is it really highlighting though', async function(assert) {
 
     await visit('/page/new');
-    await fillIn('input#highlightInput', 'com');
-    await click('button#highbutton');
+    await fillIn('[data-test-text-area]', 'fancy test text');
+    await fillIn(document.querySelectorAll('.flexSpace input')[2], 'es');
+    await click('[data-test-highlight-button]');
 
-    assert.equal(find('#textArea').innerHTML, '<mark data-markjs="true">com</mark>plex');
+    assert.equal(find('[data-test-text-area]').innerHTML, 'fancy t<mark data-markjs="true">es</mark>t text');
+  });
+
+  test('does it change the font size', async function(assert) {
+
+    await visit('/page/new');
+    await fillIn(document.querySelectorAll('.flexSpace input')[1], 25);
+
+    assert.equal(find('[data-test-text-area]').style.fontSize, '25px');
+  });
+
+  test('does it change the font family', async function(assert) {
+
+    await visit('/page/new');
+    await fillIn(document.querySelectorAll('.flexSpace input')[0], 'arial');
+
+    assert.equal(find('[data-test-text-area]').style.fontFamily, 'arial');
+  });
+
+  test('is it really clearing the text', async function(assert) {
+
+    await visit('page/new');
+    await click('[data-test-clear-button]');
+
+    assert.equal(find('[data-test-text-area]').innerHTML, '');
   });
 });

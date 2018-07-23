@@ -1,0 +1,78 @@
+$primary: "brown"
+$accent: "green"
+@import 'ember-paper'
+
+body
+  background-color: lightgrey
+
+mark
+  background-color: lightblue
+  color: white
+  text-shadow: 0 0 5px #000
+
+main
+  margin-left: 20px
+  margin-left: 20px
+
+.descScroll
+  margin-top: 10px
+  height: 95px
+  overflow-y: scroll
+  font-style: italic
+
+.bookCard
+  width: 280px
+  height: 550px
+
+.bookCover
+  width: 200px
+  height: 250px
+  position: relative
+  top: 0
+  left: 40px
+
+.container
+  position: relative
+
+.welcomeText
+  font-family: Verdana
+  color: white
+  text-align: center
+  text-shadow: -3px -3px 0 #000
+
+.welcomeTextFont
+  font-size: 70px
+
+.textCenter
+  text-align: center
+
+.flexSpace
+  margin: 10px
+
+.outletMargin
+  padding: 50px
+
+#pageButtons, #pageInputs
+  display: flex
+  align-items: center
+  justify-content: center
+
+#loginInfo
+  padding: 0 10px
+  color: white
+
+#textArea
+  padding: 0 5px
+  border-left: 1px solid #a003
+  border-right: 1px solid #a003
+  position: absolute
+  left: 18%
+  top: 5%
+  width: 30%
+  height: 85%
+  background-color: transparent
+  white-space: pre-line
+  overflow-y: scroll
+  text-align: left
+  &:focus
+    outline: none

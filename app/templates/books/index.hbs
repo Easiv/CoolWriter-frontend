@@ -1,0 +1,24 @@
+<div class="layout-row layout-xs-column layout-wrap">
+  {{#each model as |book index|}}
+    <span data-test-book>
+      {{#paper-card class="bookCard" as |card|}}
+        {{card.image src=book.cover alt=(t 'image.display.fail') title=book.title class="bookCover"}}
+        {{#card.title as |title|}}
+          {{#title.text as |text|}}
+            {{#text.headline}}{{book.title}}{{/text.headline}}
+            {{#text.subhead}}{{book.author}}{{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        {{#card.content}}
+          <p class="descScroll">
+            {{book.description}}
+          </p>
+        {{/card.content}}
+        {{#card.actions}}
+          {{#paper-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}
+          {{#link-to 'books.book.edit' book}}{{#paper-button iconButton=true raised=true}}{{paper-icon 'edit'}}{{/paper-button}}{{/link-to}}
+        {{/card.actions}}
+      {{/paper-card}}
+    </span>
+  {{/each}}
+</div>

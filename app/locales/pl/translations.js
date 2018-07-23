@@ -17,7 +17,13 @@ export default {
   'book.title': 'Tytuł',
   'book.author': 'Autor',
   'actions.create': 'Stwórz',
-  'book.cover': 'Tu wklej URL okładki',
+  'book.cover': 'URL okładki',
   'image.display.fail': 'Nie udało się załadować obrazka',
-  'actions.delete': 'Usuń'
+  'actions.delete': 'Usuń',
+  'actions.edit': 'Edytuj',
+  'book.desc': 'Opis',
+  'actions.back': 'Cofnij',
+  'actions.save': 'Zapisz',
+  'book.edit': 'Edytuj książkę',
+  'delete.confirm': 'Czy na pewno chcesz usunąć tę książkę?'
 };

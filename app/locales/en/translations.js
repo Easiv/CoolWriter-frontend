@@ -17,7 +17,13 @@ export default {
   'book.title': 'Title',
   'book.author': 'Author',
   'actions.create': 'Create',
-  'book.cover': 'Paste image URL here',
+  'book.cover': 'Image URL',
   'img.display.fail': 'Could not load the image',
-  'actions.delete': 'Usuń'
+  'actions.delete': 'Delete',
+  'actions.edit': 'Edit',
+  'book.desc': 'Description',
+  'actions.back': 'Go Back',
+  'actions.save': 'Save',
+  'book.edit': 'Edit',
+  'delete.confirm': 'Do you want delete this book?'
 };
