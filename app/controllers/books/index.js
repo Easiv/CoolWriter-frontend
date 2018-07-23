@@ -6,7 +6,9 @@ export default Controller.extend({
 
   actions: {
     deleteBook(book) {
-      if(confirm(this.get('i18n').t('delete.confirm'))) book.destroyRecord();
+      if (confirm(this.get('i18n').t('delete.confirm'))) {
+        book.destroyRecord();
+      }
     }
   }
 });
