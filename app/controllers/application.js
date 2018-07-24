@@ -6,12 +6,12 @@ export default Controller.extend({
 
   actions: {
     login() {
-      const lockOptions = {
-       auth: {
-         params: {
-           scope: 'openid user_metadata'
-         }
-       }
+      let lockOptions = {
+        auth: {
+          params: {
+            scope: 'openid user_metadata'
+          }
+        }
       };
       this.get('session').authenticate('authenticator:auth0-lock', lockOptions);
     },
