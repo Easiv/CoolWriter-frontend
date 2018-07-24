@@ -18,11 +18,11 @@
        <span class="flex"></span>
 
        {{#if session.isAuthenticated}}
-         <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.currentUser.displayName}}</span>
+         <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.data.authenticated.profile.email}}</span>
 
-         {{#paper-button raised=true onClick=(action 'signOut')}}{{t 'sign.out'}}{{/paper-button}}
+         {{#paper-button raised=true onClick=(action 'logout')}}{{t 'sign.out'}}{{/paper-button}}
        {{else}}
-         {{#paper-button raised=true onClick=(action 'signIn')}}{{t 'sign.in.google'}}{{/paper-button}}
+         {{#paper-button raised=true onClick=(action 'login')}}{{t 'sign.in.google'}}{{/paper-button}}
        {{/if}}
 
      {{/toolbar.tools}}
