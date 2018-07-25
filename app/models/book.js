@@ -7,6 +7,7 @@ export default Model.extend({
   title: attr('string'),
   author: attr('string'),
   description: attr('string'),
+  pageCount: attr('number'),
   pages: hasMany('page'),
   user: belongsTo('user')
 });
