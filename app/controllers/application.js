@@ -8,10 +8,10 @@ export default Controller.extend({
     login() {
       let lockOptions = {
         auth: {
-          params: {
-            scope: 'openid user_metadata'
-          }
-        }
+          redirect: false,
+          scope: 'openid user_metadata',
+        },
+        languageDictionary: { title: 'CoolWriter' }
       };
       this.get('session').authenticate('authenticator:auth0-lock', lockOptions);
     },
