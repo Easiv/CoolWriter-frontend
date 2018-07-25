@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
-// import FindQuery from 'ember-emberfire-find-query/mixins/find-query';
 import { inject } from '@ember/service';
+import { observer } from '@ember/object';
 export default Controller.extend({
   session: inject(),
 
@@ -13,12 +13,11 @@ export default Controller.extend({
         },
         languageDictionary: { title: 'CoolWriter' }
       };
-      this.get('session').authenticate('authenticator:auth0-lock', lockOptions);
+      this.get('session').authenticate('authenticator:auth0-lock-firebase', lockOptions);
     },
 
     logout() {
       this.get('session').invalidate();
     }
   }
-
 });
