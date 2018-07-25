@@ -10,7 +10,6 @@ export default Authenticator.extend({
 
   authenticate(options) {
     return this.get('auth0').showLock(options).then((sessionData) => {
-      debugger;
       this.set('session.user', this._findOrCreateUser(sessionData.profile));
     });
   },
