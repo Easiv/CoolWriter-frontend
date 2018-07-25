@@ -7,13 +7,17 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('page', function() {
-    this.route('new');
-  });
+
   this.route('books', function() {
     this.route('new');
     this.route('book', { path: '/:book_id' }, function() {
       this.route('edit');
+      this.route('pages', function() {
+        this.route('new');
+        this.route('page', { path: '/:page_id'}, function() {
+          this.route('edit');
+        });
+      });
     });
   });
   this.route('users');
