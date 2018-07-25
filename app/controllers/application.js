@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import { inject } from '@ember/service';
-import { observer } from '@ember/object';
 export default Controller.extend({
   session: inject(),
 
@@ -9,7 +8,7 @@ export default Controller.extend({
       let lockOptions = {
         auth: {
           redirect: false,
-          scope: 'openid user_metadata',
+          scope: 'openid user_metadata'
         },
         languageDictionary: { title: 'CoolWriter' }
       };

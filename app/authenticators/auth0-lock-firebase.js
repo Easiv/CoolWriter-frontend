@@ -28,12 +28,11 @@ export default Authenticator.extend({
   _findOrCreateUser({ email, picture: photoUrl, name }) {
     return this.get('store').query('user', { email })
       .then((users) =>
-        users.get('firstObject') || this._createUser(photoUrl, name, email);
-      );
+        users.get('firstObject') || this._createUser(photoUrl, name, email));
   },
 
   _createUser(photoUrl, name, email) {
     let user = this.get('store').createRecord('user', { photoUrl, name, email });
     return user.save();
   }
-})
+});
