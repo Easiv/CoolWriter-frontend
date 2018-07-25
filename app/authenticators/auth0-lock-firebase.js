@@ -1,8 +1,8 @@
 import Authenticator from 'ember-simple-auth-auth0/authenticators/auth0-lock';
-import getSessionExpiration from '../utils/get-session-expiration';
 import { inject as service } from '@ember/service';
-import now from '../utils/now';
 import RSVP from 'rsvp';
+import getSessionExpiration from 'ember-simple-auth-auth0/utils/get-session-expiration';
+import now from 'ember-simple-auth-auth0/utils/now';
 
 export default Authenticator.extend({
   store: service(),
@@ -10,6 +10,7 @@ export default Authenticator.extend({
 
   authenticate(options) {
     return this.get('auth0').showLock(options).then((sessionData) => {
+      debugger;
       this.set('session.user', this._findOrCreateUser(sessionData.profile));
     });
   },
