@@ -2,9 +2,10 @@ import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import Mark from 'mark.js';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-
+  session: service(),
   lighted: false,
   family: 'Roboto',
   size: 16,
@@ -42,14 +43,16 @@ export default Controller.extend({
       }
     },
     newPage() {
-      let newPage = this.store.createRecord('page', {
-        number: this.get('number'),
-        content: this.get('content'),
-        book: this.get('book')
-      });
-      newPage.save().then(() => {
-        this.get('routing').transitionTo('books.pages', []);
-      });
+      let context = document.querySelector('#textArea');
+      let instance = new Mark(context);
+      instance.unmark();
+      let content = context.innerHTML;
+
+      this.store.createRecord('page', {
+        number: 1,
+        content,
+        book: this.get('model.book')
+      }).save();
     }
   }
 });
