@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   session: service(),
+  routing: service('-routing'),
 
   actions: {
     createBook() {
@@ -15,7 +16,9 @@ export default Controller.extend({
         user: this.get('session.currentUser')
 
       });
-      newBook.save();
+      newBook.save().then(() => {
+        this.get('routing').transitionTo('books.index', []);
+      });
     }
   }
 });

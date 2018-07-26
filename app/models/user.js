@@ -4,6 +4,7 @@ const { attr, hasMany, Model } = DS;
 
 export default Model.extend({
   name: attr('string'),
-  uid: attr('string'),
+  photoUrl: attr('string'),
+  email: attr('string'),
   books: hasMany('book')
 });

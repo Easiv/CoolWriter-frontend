@@ -2,6 +2,14 @@
 
 module.exports = function(environment) {
   let ENV = {
+    'ember-simple-auth': {
+      authenticationRoute: 'login',
+      auth0: {
+        clientID: 'SiaA4t5HMsDfXEpI7zodXoE7qx00vI4R',
+        domain: 'coolwriter.eu.auth0.com',
+        logoutReturnToURL: '/'
+      }
+    },
     firebase: {
       apiKey: "AIzaSyBtASgBSgoXBkUPs7G9GhBlEV-47TnG9Fo",
       authDomain: "coolwriter-3e7a6.firebaseapp.com",

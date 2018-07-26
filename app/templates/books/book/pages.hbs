@@ -1,3 +1,4 @@
+
 {{outlet}}
 <div id="pageButtons">
   <span class="flexSpace">
@@ -17,3 +18,13 @@
   <img src="/bookImage.png" width="80%">
   <span contenteditable="true" id="textArea" style={{textAreaStyle}} data-test-text-area></span>
 </div>
+<span class="layout-row layout-align-space-between-center">
+  <span style="width: 118px"></span>
+  <span>
+    {{#link-to 'books.book.pages.page' page}}{{#paper-button}}{{paper-icon 'navigate_before' size=90}}{{/paper-button}}{{/link-to}}
+    {{#link-to 'books.book.pages.page' page}}{{#paper-button}}{{paper-icon 'navigate_next' size=90}}{{/paper-button}}{{/link-to}}
+  </span>
+  <span>
+    {{#paper-button onClick=(action 'newPage')}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
+  </span>
+</span>

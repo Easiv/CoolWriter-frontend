@@ -40,6 +40,16 @@ export default Controller.extend({
         instance.mark(input);
         this.switchLight();
       }
+    },
+    newPage() {
+      let newPage = this.store.createRecord('page', {
+        number: this.get('number'),
+        content: this.get('content'),
+        book: this.get('book')
+      });
+      newPage.save().then(() => {
+        this.get('routing').transitionTo('books.pages', []);
+      });
     }
   }
 });
