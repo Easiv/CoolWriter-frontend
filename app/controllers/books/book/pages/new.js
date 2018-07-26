@@ -13,8 +13,7 @@ export default Controller.extend({
         number: this.get('number'),
         content: this.get('content'),
         book: this.get('book')
-      });
-      newPage.save().then(() => {
+      }).save().then(() => {
         this.get('routing').transitionTo('books.pages', []);
       });
     }
