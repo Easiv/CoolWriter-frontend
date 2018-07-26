@@ -8,8 +8,7 @@ export default Controller.extend({
 
   actions: {
     createPage() {
-
-      let newPage = this.store.createRecord('page', {
+      this.store.createRecord('page', {
         number: this.get('number'),
         content: this.get('content'),
         book: this.get('book')
