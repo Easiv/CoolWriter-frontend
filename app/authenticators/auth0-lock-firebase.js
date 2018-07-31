@@ -16,8 +16,7 @@ export default Authenticator.extend({
   },
 
   restore(data) {
-    console.log(data);
-    this._setUserToSession(data.profile)
+    this._setUserToSession(data.profile);
 
     let expiresAt = getSessionExpiration(data || {});
     if (expiresAt > now()) {
@@ -30,7 +29,7 @@ export default Authenticator.extend({
   _setUserToSession(profileData) {
     this._findOrCreateUser(profileData).then((user) => {
       this.set('session.user', user);
-    })
+    });
   },
 
   _findOrCreateUser({ email, picture: photoUrl, name }) {
