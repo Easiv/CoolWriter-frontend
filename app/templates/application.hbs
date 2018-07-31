@@ -14,7 +14,7 @@
        <span class="flex"></span>
 
        {{#if session.isAuthenticated}}
-         <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.user.email}}</span>
+         <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.user.name}}</span>
 
          {{#paper-button raised=true onClick=(action 'logout')}}{{t 'sign.out'}}{{/paper-button}}
        {{else}}
@@ -26,6 +26,7 @@
 
   <main>
      {{outlet}}
+     {{session.user}}
   </main>
 
   {{#paper-form}}

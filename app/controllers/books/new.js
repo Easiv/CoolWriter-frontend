@@ -13,7 +13,7 @@ export default Controller.extend({
         author: this.get('author'),
         cover: this.get('cover'),
         description: this.get('description'),
-        user: this.get('session.currentUser')
+        user_email: this.get('session.user.email')
 
       });
       newBook.save().then(() => {
