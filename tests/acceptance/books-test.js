@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { visit, click, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
+import bookPage from 'coolwriter/tests/pages/book';
 
 module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
@@ -12,11 +13,9 @@ module('Acceptance | books', function(hooks) {
     assert.equal(currentURL(), '/books/new');
   });
 
-  test('checking if book shelf is empty after logout', async function(assert) {
-    await visit('/books');
-    await click ('[data-test-logout-button]');
-    const bookShelf = document.querySelector("#bookShelf");
+  test('checking if book shelf when user is not logged in', function(assert) {
+    bookPage.visit()
 
-    assert.equal(bookShelf, "");
+    assert.notOk(bookPage.contains('[data-test-book]'));
   });
 });
