@@ -16,7 +16,6 @@ export default Route.extend({
   }),
 
   _loadBooks() {
-    console.log(this.get('session.user.email'));
     let books = this.store.query('book', {
       email: this.get('session.user.email')
     });

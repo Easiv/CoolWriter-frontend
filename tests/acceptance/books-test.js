@@ -11,4 +11,12 @@ module('Acceptance | books', function(hooks) {
 
     assert.equal(currentURL(), '/books/new');
   });
+
+  test('checking if book shelf is empty after logout', async function(assert) {
+    await visit('/books');
+    await click ('[data-test-logout-button]');
+    const bookShelf = document.querySelector("#bookShelf");
+
+    assert.equal(bookShelf, "");
+  });
 });

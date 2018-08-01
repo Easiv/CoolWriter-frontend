@@ -1698,7 +1698,7 @@ broccoli-funnel-reducer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel-reducer/-/broccoli-funnel-reducer-1.0.0.tgz#11365b2a785aec9b17972a36df87eef24c5cc0ea"
 
-broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.2.0:
+broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.1.0, broccoli-funnel@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-1.2.0.tgz#cddc3afc5ff1685a8023488fff74ce6fb5a51296"
   dependencies:
@@ -2195,6 +2195,10 @@ cardinal@^1.0.0:
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
+
+ceibo@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ceibo/-/ceibo-2.0.0.tgz#9a61eb054a91c09934588d4e45d9dd2c3bf04eee"
 
 center-align@^0.1.1:
   version "0.1.3"
@@ -3191,6 +3195,17 @@ ember-cli-normalize-entity-name@^1.0.0:
   dependencies:
     silent-error "^1.0.0"
 
+ember-cli-page-object@^1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-page-object/-/ember-cli-page-object-1.14.1.tgz#2e3599c204c56440c6c8154fc686c603816f877a"
+  dependencies:
+    ceibo "~2.0.0"
+    ember-cli-babel "^6.6.0"
+    ember-cli-node-assets "^0.2.2"
+    ember-native-dom-helpers "^0.5.3"
+    jquery "^3.2.1"
+    rsvp "^4.7.0"
+
 ember-cli-path-utils@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-path-utils/-/ember-cli-path-utils-1.0.0.tgz#4e39af8b55301cddc5017739b77a804fba2071ed"
@@ -3409,9 +3424,9 @@ ember-css-transitions@^0.1.14:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-data@~3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.3.0.tgz#138cc248f61164404f5aa6b8207a3dfae8eaea2a"
+ember-data@^3.2.0:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.3.1.tgz#8ff1f7759d35fcb750c8d33435e7ef2f69242dce"
   dependencies:
     "@ember/ordered-set" "^1.0.0"
     amd-name-resolver "0.0.7"
@@ -3550,6 +3565,13 @@ ember-maybe-in-element@^0.1.3:
   resolved "https://registry.yarnpkg.com/ember-maybe-in-element/-/ember-maybe-in-element-0.1.3.tgz#1c89be49246e580c1090336ad8be31e373f71b60"
   dependencies:
     ember-cli-babel "^6.11.0"
+
+ember-native-dom-helpers@^0.5.3:
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.5.10.tgz#9c7172e4ddfa5dd86830c46a936e2f8eca3e5896"
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    ember-cli-babel "^6.6.0"
 
 ember-paper@^1.0.0-beta.7:
   version "1.0.0-beta.7"
@@ -5551,7 +5573,7 @@ joi@^6.10.1:
     moment "2.x.x"
     topo "1.x.x"
 
-jquery@^3.3.1:
+jquery@^3.2.1, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
