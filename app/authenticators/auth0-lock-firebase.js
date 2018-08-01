@@ -10,12 +10,13 @@ export default Authenticator.extend({
 
   authenticate(options) {
     return this.get('auth0').showLock(options).then((sessionData) => {
-      this.set('session.user', this._findOrCreateUser(sessionData.profile));
+      this._setUserToSession(sessionData.profile);
+      return sessionData;
     });
   },
 
   restore(data) {
-    this.set('session.user', this._findOrCreateUser(data.profile));
+    this._setUserToSession(data.profile);
 
     let expiresAt = getSessionExpiration(data || {});
     if (expiresAt > now()) {
@@ -23,6 +24,12 @@ export default Authenticator.extend({
     } else {
       return RSVP.reject();
     }
+  },
+
+  _setUserToSession(profileData) {
+    this._findOrCreateUser(profileData).then((user) => {
+      this.set('session.user', user);
+    });
   },
 
   _findOrCreateUser({ email, picture: photoUrl, name }) {
