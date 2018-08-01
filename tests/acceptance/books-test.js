@@ -2,6 +2,8 @@ import { module, test } from 'qunit';
 import { visit, click, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import bookPage from 'coolwriter/tests/pages/book';
+import homePage from 'coolwriter/tests/pages/home';
+import { currentSession, authenticateSession, invalidateSession } from 'ember-simple-auth/test-support';
 
 module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
@@ -18,4 +20,18 @@ module('Acceptance | books', function(hooks) {
 
     assert.notOk(bookPage.contains('[data-test-book]'));
   });
+
+  test('checking if new logged user has empty shelf', async function(assert) {
+    await homePage.visit()
+    await authenticateSession({
+      userId: 1,
+      otherData: 'some-data'
+    });
+    await bookPage.visit()
+
+    assert.ok(currentSession(this.application).get('isAuthenticated'));
+    assert.notOk(bookPage.contains('[data-test-book]'));
+  });
+
+
 });
