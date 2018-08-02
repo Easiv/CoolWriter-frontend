@@ -28,12 +28,12 @@ export default Controller.extend({
   },
 
   _loadBooks() {
-    if ( this.get('email') ) {
+    if (this.get('email')) {
       let books = this.store.query('book', {
-        orderBy: 'user_email',
+        orderBy: 'userEmail',
         equalTo: this.get('email')
       });
       this.set('books', books);
     }
-  },
+  }
 });

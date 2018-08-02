@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { visit, click, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import bookPage from 'coolwriter/tests/pages/book';
-import { currentSession, authenticateSession, invalidateSession } from 'ember-simple-auth/test-support';
+import { authenticateSession, currentSession } from 'ember-simple-auth/test-support';
 
 module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
@@ -15,7 +15,7 @@ module('Acceptance | books', function(hooks) {
   });
 
   test('checking if book shelf when user is not logged in', function(assert) {
-    bookPage.visit()
+    bookPage.visit();
 
     assert.notOk(bookPage.contains('[data-test-book]'));
   });

@@ -1,10 +1,8 @@
 import { module, test } from 'qunit';
-import { visit, fillIn, findAll, click } from '@ember/test-helpers';
-import { setupApplicationTest, pauseTest } from 'ember-qunit';
-import { currentSession, authenticateSession, invalidateSession } from 'ember-simple-auth/test-support';
+import { setupApplicationTest } from 'ember-qunit';
+import { authenticateSession } from 'ember-simple-auth/test-support';
 import bookPage from 'coolwriter/tests/pages/book';
 import page from 'coolwriter/tests/pages/books/new';
-
 
 module('Acceptance | books/new', function(hooks) {
   setupApplicationTest(hooks);
@@ -15,11 +13,11 @@ module('Acceptance | books/new', function(hooks) {
       sum: 42
     });
     await page.visit()
-              .title('nice title')
-              .cover('')
-              .author('to ja')
-              .description('hielou guis')
-              .create();
+      .title('nice title')
+      .cover('')
+      .author('to ja')
+      .description('hielou guis')
+      .create();
 
     await bookPage.visit();
 

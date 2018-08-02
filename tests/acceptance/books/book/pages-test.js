@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { fillIn, click, visit, find } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
-module('Acceptance | page/new', function(hooks) {
+module('Acceptance | books/pages', function(hooks) {
   setupApplicationTest(hooks);
 
   test('is it really highlighting though', async function(assert) {
