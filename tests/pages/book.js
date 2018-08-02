@@ -2,5 +2,5 @@ import { create, visitable, count, contains, isPresent } from 'ember-cli-page-ob
 
 export default create({
   visit: visitable('/books'),
-  contains: contains('div', { multiple: true })
+  bookCount: count('span', { scope: '.bookShelf' })
 });

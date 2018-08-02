@@ -1,25 +1,28 @@
 import { module, test } from 'qunit';
 import { visit, fillIn, findAll, click } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
+import { setupApplicationTest, pauseTest } from 'ember-qunit';
+import { currentSession, authenticateSession, invalidateSession } from 'ember-simple-auth/test-support';
+import bookPage from 'coolwriter/tests/pages/book';
+import page from 'coolwriter/tests/pages/books/new';
+
 
 module('Acceptance | books/new', function(hooks) {
   setupApplicationTest(hooks);
 
-  test('creating new book', async function(assert) {
+  test('logging user, adding book and checking if it exists', async function(assert) {
+    await authenticateSession({
+      profile: { name: 'basdasda', email: 'stefan@lubieplacki.pl' },
+      sum: 42
+    });
+    await page.visit()
+              .title('nice title')
+              .cover('')
+              .author('to ja')
+              .description('hielou guis')
+              .create();
 
-    await visit('/books');
-    let previousCount = findAll('[data-test-book]').length;
+    await bookPage.visit();
 
-    await visit('/books/new');
-    await fillIn('[data-test-book-title] input', 'swietna ksiazka');
-    await fillIn('[data-test-book-cover] input', '');
-    await fillIn('[data-test-book-author] input', 'swietny autor');
-    await fillIn('[data-test-book-description] input', 'a opis to juz w ogole jest genialny');
-    await click('[data-test-button-create]');
-
-    await visit('/books');
-    let currentCount = findAll('[data-test-book]').length;
-
-    assert.equal(currentCount, previousCount + 1);
+    assert.equal(bookPage.bookCount, 1);
   });
 });
