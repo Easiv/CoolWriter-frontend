@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { authenticateSession } from 'ember-simple-auth/test-support';
-import bookPage from 'coolwriter/tests/pages/book';
+import bookPage from 'coolwriter/tests/pages/books';
 import page from 'coolwriter/tests/pages/books/new';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 

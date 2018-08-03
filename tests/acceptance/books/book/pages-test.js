@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
-import { fillIn, click, visit, find } from '@ember/test-helpers';
+import { find } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
+import page from 'coolwriter/tests/pages/books/book/pages';
 
 module('Acceptance | books/pages', function(hooks) {
   setupApplicationTest(hooks);
@@ -10,64 +11,68 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('is it really highlighting though', async function(assert) {
 
-    server.createList('book', 1);
+    server.create('book', 1);
+    let textArea = '[data-test-text-area]';
+    let isMarked = 'fancy t<mark data-markjs="true">es</mark>t text';
 
     await authenticateSession({
       profile: { email: 'mirage@fake.do' }
     });
 
-    await visit('/books');
+    await page.visitBooks();
+    await page.clickWrite();
+    await page.fillTextArea('fancy test text');
+    await page.fillMarkInput('es');
+    await page.clickHighlight();
 
-    await click('[data-test-write-button]');
-    await fillIn('[data-test-text-area]', 'fancy test text');
-    await fillIn(document.querySelectorAll('.flexSpace input')[2], 'es');
-    await click('[data-test-highlight-button]');
-
-    assert.equal(find('[data-test-text-area]').innerHTML, 'fancy t<mark data-markjs="true">es</mark>t text');
+    assert.equal(find(textArea).innerHTML, isMarked);
   });
 
   test('does it change the font size', async function(assert) {
 
     server.createList('book', 1);
+    let textArea = '[data-test-text-area]';
 
     await authenticateSession({
       profile: { email: 'mirage@fake.do' }
     });
 
-    await visit('/books');
-    await click('[data-test-write-button]');
-    await fillIn(document.querySelectorAll('.flexSpace input')[1], 25);
+    await page.visitBooks();
+    await page.clickWrite();
+    await page.fillSizeInput(25);
 
-    assert.equal(find('[data-test-text-area]').style.fontSize, '25px');
+    assert.equal(find(textArea).style.fontSize, '25px');
   });
 
   test('does it change the font family', async function(assert) {
 
     server.createList('book', 1);
+    let textArea = '[data-test-text-area]';
 
     await authenticateSession({
       profile: { email: 'mirage@fake.do' }
     });
 
-    await visit('/books');
-    await click('[data-test-write-button]');
-    await fillIn(document.querySelectorAll('.flexSpace input')[0], 'arial');
+    await page.visitBooks();
+    await page.clickWrite();
+    await page.fillFamilyInput('arial');
 
-    assert.equal(find('[data-test-text-area]').style.fontFamily, 'arial');
+    assert.equal(find(textArea).style.fontFamily, 'arial');
   });
 
   test('is it really clearing the text', async function(assert) {
 
     server.createList('book', 1);
+    let textArea = '[data-test-text-area]';
 
     await authenticateSession({
       profile: { email: 'mirage@fake.do' }
     });
 
-    await visit('/books');
-    await click('[data-test-write-button]');
-    await click('[data-test-clear-button]');
+    await page.visitBooks();
+    await page.clickWrite();
+    await page.clickClear();
 
-    assert.equal(find('[data-test-text-area]').innerHTML, '');
+    assert.equal(find(textArea).innerHTML, '');
   });
 });

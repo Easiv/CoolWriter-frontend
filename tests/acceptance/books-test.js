@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
-import { visit, click, currentURL } from '@ember/test-helpers';
+import { currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import bookPage from 'coolwriter/tests/pages/book';
+import page from 'coolwriter/tests/pages/books';
 import { authenticateSession, currentSession } from 'ember-simple-auth/test-support';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
@@ -9,27 +9,27 @@ module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('visiting new book page', async function(assert) {
-    await visit('/books');
-    await click('[data-test-create-book-button]');
+  test('visiting book creation page', async function(assert) {
+    await page.visit()
+      .createBook();
 
     assert.equal(currentURL(), '/books/new');
   });
 
   test('checking if book shelf when user is not logged in', async function(assert) {
-    await bookPage.visit();
+    await page.visit();
 
-    assert.notOk(bookPage.contains('[data-test-book]'));
+    assert.notOk(currentSession(this.application).get('isAuthenticated'));
+    assert.notOk(page.bookCount, 0);
   });
 
   test('checking if new logged user has empty shelf', async function(assert) {
     await authenticateSession({
-      userId: 1,
-      otherData: 'some-data'
+      profile: { email: 'unusual@mail.com' }
     });
-    await bookPage.visit();
+    await page.visit();
 
     assert.ok(currentSession(this.application).get('isAuthenticated'));
-    assert.equal(bookPage.bookCount, 0);
+    assert.equal(page.bookCount, 0);
   });
 });
