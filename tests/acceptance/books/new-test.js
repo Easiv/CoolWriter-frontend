@@ -1,6 +1,5 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import { pauseTest } from '@ember/test-helpers';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 import bookPage from 'coolwriter/tests/pages/book';
 import page from 'coolwriter/tests/pages/books/new';
@@ -26,8 +25,6 @@ module('Acceptance | books/new', function(hooks) {
       .create();
 
     await bookPage.visit();
-
-    //await pauseTest();
 
     assert.equal(bookPage.bookCount, 1);
   });
