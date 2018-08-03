@@ -60,6 +60,11 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.locationType = 'none';
 
+    //dodalem to
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    };
+
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
