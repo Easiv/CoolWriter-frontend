@@ -3,9 +3,11 @@ import { visit, click, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import bookPage from 'coolwriter/tests/pages/book';
 import { authenticateSession, currentSession } from 'ember-simple-auth/test-support';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
 module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   test('visiting new book page', async function(assert) {
     await visit('/books');
@@ -14,8 +16,8 @@ module('Acceptance | books', function(hooks) {
     assert.equal(currentURL(), '/books/new');
   });
 
-  test('checking if book shelf when user is not logged in', function(assert) {
-    bookPage.visit();
+  test('checking if book shelf when user is not logged in', async function(assert) {
+    await bookPage.visit();
 
     assert.notOk(bookPage.contains('[data-test-book]'));
   });

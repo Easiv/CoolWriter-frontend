@@ -1,13 +1,23 @@
 import { module, test } from 'qunit';
 import { fillIn, click, visit, find } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { authenticateSession } from 'ember-simple-auth/test-support';
 
 module('Acceptance | books/pages', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   test('is it really highlighting though', async function(assert) {
 
+    server.createList('book', 1);
+
+    await authenticateSession({
+      profile: { email: 'mirage@fake.do' }
+    });
+
     await visit('/books');
+
     await click('[data-test-write-button]');
     await fillIn('[data-test-text-area]', 'fancy test text');
     await fillIn(document.querySelectorAll('.flexSpace input')[2], 'es');
@@ -18,6 +28,12 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('does it change the font size', async function(assert) {
 
+    server.createList('book', 1);
+
+    await authenticateSession({
+      profile: { email: 'mirage@fake.do' }
+    });
+
     await visit('/books');
     await click('[data-test-write-button]');
     await fillIn(document.querySelectorAll('.flexSpace input')[1], 25);
@@ -27,6 +43,12 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('does it change the font family', async function(assert) {
 
+    server.createList('book', 1);
+
+    await authenticateSession({
+      profile: { email: 'mirage@fake.do' }
+    });
+
     await visit('/books');
     await click('[data-test-write-button]');
     await fillIn(document.querySelectorAll('.flexSpace input')[0], 'arial');
@@ -35,6 +57,12 @@ module('Acceptance | books/pages', function(hooks) {
   });
 
   test('is it really clearing the text', async function(assert) {
+
+    server.createList('book', 1);
+
+    await authenticateSession({
+      profile: { email: 'mirage@fake.do' }
+    });
 
     await visit('/books');
     await click('[data-test-write-button]');
