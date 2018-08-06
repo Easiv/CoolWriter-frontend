@@ -16,7 +16,7 @@ module('Acceptance | books', function(hooks) {
     assert.equal(currentURL(), '/books/new');
   });
 
-  test('checking if book shelf when user is not logged in', async function(assert) {
+  test('checking if book shelf is empty when user is not logged in', async function(assert) {
     await page.visit();
 
     assert.notOk(currentSession(this.application).get('isAuthenticated'));
