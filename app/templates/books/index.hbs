@@ -1,4 +1,15 @@
 <div class="layout-row layout-xs-column layout-wrap bookShelf">
+
+  {{#link-to 'books.new'}}
+    {{#paper-card data-test-create-book-button class="bookCard" as |card|}}
+      {{#card.content}}
+        {{#link-to 'books.new'}}{{paper-icon data-test-create-book-button 'add_box' size=200 accent=true class="plusIcon"}}{{/link-to}}
+        <span class="newBook">{{t 'book.new'}}</span>
+      {{/card.content}}
+    {{/paper-card}}
+  {{/link-to}}
+  <br>
+
   {{#each books as |book index|}}
     <span data-test-book>
       {{#paper-card class="bookCard" as |card|}}
