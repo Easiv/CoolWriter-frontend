@@ -1,4 +1,4 @@
-<div class="layout-row layout-xs-column layout-wrap">
+<div class="layout-row layout-xs-column layout-wrap bookShelf">
   {{#each books as |book index|}}
     <span data-test-book>
       {{#paper-card class="bookCard" as |card|}}
@@ -13,7 +13,7 @@
           <p class="descScroll">
             {{book.description}}
           </p>
-          <p>{{book.user_email}}</p>
+          <p>{{book.userEmail}}</p>
         {{/card.content}}
         {{#card.actions}}
           {{#link-to 'books.book.pages' book}}{{#paper-button data-test-write-button iconButton=true raised=true}}{{paper-icon 'library_books'}}{{/paper-button}}{{/link-to}}

@@ -1,25 +1,31 @@
 import { module, test } from 'qunit';
-import { visit, fillIn, findAll, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
+import { authenticateSession } from 'ember-simple-auth/test-support';
+import bookPage from 'coolwriter/tests/pages/books';
+import page from 'coolwriter/tests/pages/books/new';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
 module('Acceptance | books/new', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-  test('creating new book', async function(assert) {
+  test('logging user, adding book and checking if it exists', async function(assert) {
 
-    await visit('/books');
-    let previousCount = findAll('[data-test-book]').length;
+    server.create('book', 1);
 
-    await visit('/books/new');
-    await fillIn('[data-test-book-title] input', 'swietna ksiazka');
-    await fillIn('[data-test-book-cover] input', '');
-    await fillIn('[data-test-book-author] input', 'swietny autor');
-    await fillIn('[data-test-book-description] input', 'a opis to juz w ogole jest genialny');
-    await click('[data-test-button-create]');
+    await authenticateSession({
+      profile: { email: 'mirage@fake.do' }
+    });
 
-    await visit('/books');
-    let currentCount = findAll('[data-test-book]').length;
+    await page.visit()
+      .title('nice title')
+      .cover('')
+      .author('to ja')
+      .description('hielou guis')
+      .create();
 
-    assert.equal(currentCount, previousCount + 1);
+    await bookPage.visit();
+
+    assert.equal(bookPage.bookCount, 1);
   });
 });

@@ -16,9 +16,9 @@
        {{#if session.isAuthenticated}}
          <span id='loginInfo'>{{t 'logged.in.as'}}: {{session.user.name}}</span>
 
-         {{#paper-button raised=true onClick=(action 'logout')}}{{t 'sign.out'}}{{/paper-button}}
+         {{#paper-button data-test-logout-button raised=true onClick=(action 'logout')}}{{t 'sign.out'}}{{/paper-button}}
        {{else}}
-         {{#paper-button raised=true onClick=(action 'login')}}{{t 'sign.in.google'}}{{/paper-button}}
+         {{#paper-button data-test-login-button raised=true onClick=(action 'login')}}{{t 'sign.in.google'}}{{/paper-button}}
        {{/if}}
 
      {{/toolbar.tools}}
