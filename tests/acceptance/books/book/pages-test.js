@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import page from 'coolwriter/tests/pages/books/book/pages';
+import { logUser } from 'coolwriter/tests/helpers/login';
 
 module('Acceptance | books/pages', function(hooks) {
   setupApplicationTest(hooks);
@@ -9,8 +10,8 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('Is it really highlighting though?', async function(assert) {
 
+    await logUser();
     await page.createBook();
-    await page.logUser();
     await page.visitBooks();
     await page.clickWrite();
     await page.fillTextArea('fancy test text');
@@ -22,8 +23,8 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('Does it change the font size?', async function(assert) {
 
+    await logUser();
     await page.createBook();
-    await page.logUser();
     await page.visitBooks();
     await page.clickWrite();
     await page.fillSizeInput(25);
@@ -33,8 +34,8 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('Does it change the font family?', async function(assert) {
 
+    await logUser();
     await page.createBook();
-    await page.logUser();
     await page.visitBooks();
     await page.clickWrite();
     await page.fillFamilyInput('arial');
@@ -44,8 +45,8 @@ module('Acceptance | books/pages', function(hooks) {
 
   test('Is it really clearing the text?', async function(assert) {
 
+    await logUser();
     await page.createBook();
-    await page.logUser();
     await page.visitBooks();
     await page.clickWrite();
     await page.clickClear();

@@ -1,17 +1,10 @@
 import { create, visitable, clickable, fillable } from 'ember-cli-page-object';
-import { authenticateSession } from 'ember-simple-auth/test-support';
 import { find } from '@ember/test-helpers';
 
 export default create({
 
   createBook() {
     server.create('book', 1);
-  },
-
-  logUser() {
-    return authenticateSession({
-      profile: { email: 'mirage@fake.do' }
-    });
   },
 
   areaContent() {
