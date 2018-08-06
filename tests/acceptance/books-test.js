@@ -9,7 +9,7 @@ module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('visiting book creation page', async function(assert) {
+  test('checking if plus button exists', async function(assert) {
     await page.visit()
       .createBook();
 
