@@ -19,14 +19,6 @@ export default Controller.extend({
     this._loadBooks();
   }),
 
-  actions: {
-    deleteBook(book) {
-      if (confirm(this.get('i18n').t('delete.confirm'))) {
-        book.destroyRecord();
-      }
-    }
-  },
-
   _loadBooks() {
     if (this.get('email')) {
       let books = this.store.query('book', {
@@ -35,5 +27,13 @@ export default Controller.extend({
       });
       this.set('books', books);
     }
-  }
+  },
+
+  actions: {
+    deleteBook(book) {
+      if (confirm(this.get('i18n').t('delete.confirm'))) {
+        book.destroyRecord();
+      }
+    }
+}
 });
