@@ -4,6 +4,7 @@ import { setupApplicationTest } from 'ember-qunit';
 import page from 'coolwriter/tests/pages/books';
 import { authenticateSession, currentSession } from 'ember-simple-auth/test-support';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { logUser } from 'coolwriter/tests/helpers/login';
 
 module('Acceptance | books', function(hooks) {
   setupApplicationTest(hooks);
@@ -11,7 +12,7 @@ module('Acceptance | books', function(hooks) {
 
   test('checking if plus button exists', async function(assert) {
     await page.visit()
-      .createBook();
+      .clickCreate();
 
     assert.equal(currentURL(), '/books/new');
   });
@@ -31,5 +32,13 @@ module('Acceptance | books', function(hooks) {
 
     assert.ok(currentSession(this.application).get('isAuthenticated'));
     assert.equal(page.bookCount, 0);
+  });
+
+  test('checking if the book contains user email', async function(assert) {
+    await logUser();
+    await page.createBook();
+    await page.visit();
+
+    assert.equal(currentURL(), '/books'); //WIP tu bedzie useful assert
   });
 });

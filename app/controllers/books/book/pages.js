@@ -1,13 +1,20 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service'
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import Mark from 'mark.js';
 
 export default Controller.extend({
 
+  store: service(),
+  routing: service('-routing'),
   lighted: false,
   family: 'Roboto',
   size: 16,
+
+  // book: computed('session.user.email', function() {
+  //   this._loadBooks();
+  // })
 
   switchLight() {
     this.toggleProperty('lighted');
@@ -41,14 +48,14 @@ export default Controller.extend({
         this.switchLight();
       }
     },
-    newPage() {
+    newPage(book) {
+      console.log(this.get('book'));
       let newPage = this.store.createRecord('page', {
-        number: this.get('number'),
-        content: this.get('content'),
-        book: this.get('book')
-      });
-      newPage.save().then(() => {
-        this.get('routing').transitionTo('books.pages', []);
+        number: 1,
+        content: document.querySelector('#textArea').innerText,
+        book
+      }).save().then(() => {
+        console.log(newPage);
       });
     }
   }
