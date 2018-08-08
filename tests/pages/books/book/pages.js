@@ -19,6 +19,10 @@ export default create({
     return find(this.textArea).style.fontFamily;
   },
 
+  toggleHover() {
+    return document.querySelector('.bookShelf').children[1].classList.remove('editHover');
+  },
+
   textArea: '[data-test-text-area]',
   isMarked: 'fancy t<mark data-markjs="true">es</mark>t text',
 
