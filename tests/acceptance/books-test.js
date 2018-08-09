@@ -39,6 +39,6 @@ module('Acceptance | books', function(hooks) {
     await page.createBook();
     await page.visit();
 
-    assert.equal(currentURL(), '/books'); //WIP tu bedzie useful assert
+    assert.equal(currentURL(), '/books');
   });
 });

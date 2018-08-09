@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupApplicationTest, pauseTest } from 'ember-qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import page from 'coolwriter/tests/pages/books/book/pages';
 import { logUser } from 'coolwriter/tests/helpers/login';
@@ -14,9 +14,7 @@ module('Acceptance | books/pages', function(hooks) {
     await page.createBook();
     await page.visitBooks();
     await page.toggleHover();
-
     await page.clickWrite();
-    await pauseTest();
     await page.fillTextArea('fancy test text');
     await page.fillMarkInput('es');
     await page.clickHighlight();

@@ -24,7 +24,9 @@
   </span>
   <span>
     <hr />
-    <h1>{{book}}</h1>
+
+    {{model.pages.length}}
+    <h1>{{model.book.id}}</h1>
     <hr />
     {{#paper-button onClick=(action 'newPage' book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
   </span>

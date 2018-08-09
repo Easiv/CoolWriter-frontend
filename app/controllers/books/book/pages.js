@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service'
+import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import Mark from 'mark.js';
@@ -48,15 +48,12 @@ export default Controller.extend({
         this.switchLight();
       }
     },
-    newPage(book) {
-      console.log(this.get('book'));
-      let newPage = this.store.createRecord('page', {
+    newPage() {
+      this.store.createRecord('page', {
         number: 1,
         content: document.querySelector('#textArea').innerText,
-        book
-      }).save().then(() => {
-        console.log(newPage);
-      });
+        book: this.model.book
+      }).save();
     }
   }
 });

@@ -2,14 +2,13 @@ import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 
 export default Route.extend({
-  model(params) {
-    console.log(params);
+  model() {
     return RSVP.hash({
       pages: this.store.findAll('page', {
-        orderBy: 'bookId',
-        equalTo: params.book_id
+        orderBy: 'book_id',
+        equalTo: this.modelFor('books.book').get('id')
       }),
-      book: this.modelFor('book')
+      book: this.modelFor('books.book')
     });
   }
 });
