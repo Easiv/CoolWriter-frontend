@@ -12,10 +12,6 @@ export default Controller.extend({
   family: 'Roboto',
   size: 16,
 
-  // book: computed('session.user.email', function() {
-  //   this._loadBooks();
-  // })
-
   switchLight() {
     this.toggleProperty('lighted');
   },
@@ -54,6 +50,16 @@ export default Controller.extend({
         content: document.querySelector('#textArea').innerText,
         book: this.model.book
       }).save();
+    },
+    firstPage() {
+      let blankPage = document.querySelector('#textArea');
+      let pageContent = this.get('store').query('page', {
+        orderBy: 'book',
+        equalTo: this.model.book.id
+      });
+      console.log(this.model.book.id);
+      console.log(pageContent.keys);
+      //page.innerHTML
     }
   }
 });
