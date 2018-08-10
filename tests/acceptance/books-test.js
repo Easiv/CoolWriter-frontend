@@ -18,7 +18,7 @@ module('Acceptance | books', function(hooks) {
   });
 
   test('checking if book shelf is empty when user is not logged in', async function(assert) {
-    await page.visit();
+    await bookPage.visit();
 
     assert.notOk(currentSession(this.application).get('isAuthenticated'));
     assert.notOk(bookPage.bookCount, 0);
@@ -36,7 +36,7 @@ module('Acceptance | books', function(hooks) {
 
   test('checking if the book contains user email', async function(assert) {
     await logUser();
-    await bookPage.createBook();
+    await server.create('book', 1);
     await bookPage.visit();
 
     assert.equal(currentURL(), '/books');
@@ -45,19 +45,19 @@ module('Acceptance | books', function(hooks) {
   test('is the add book pane first when its no books?', async function(assert) {
 
     await logUser();
-    await page.visit();
+    await bookPage.visit();
 
-    assert.equal(page.allPanes().length, 1);
-    assert.equal(page.firstPane().className, 'plusIcon');
+    assert.equal(bookPage.allPanes().length, 1);
+    assert.equal(bookPage.firstPane().className, 'plusIcon');
   });
 
   test('is the add book pane first when there are some books?', async function(assert) {
 
     await logUser();
-    await page.createBooks(3);
-    await page.visit();
+    await server.createList('book', 3);
+    await bookPage.visit();
 
-    assert.equal(page.allPanes().length, 4);
-    assert.equal(page.firstPane().className, 'plusIcon');
+    assert.equal(bookPage.allPanes().length, 4);
+    assert.equal(bookPage.firstPane().className, 'plusIcon');
   });
 });
