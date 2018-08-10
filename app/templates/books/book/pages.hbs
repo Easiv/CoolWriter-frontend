@@ -19,17 +19,17 @@
 <span class="layout-row layout-align-space-between-center">
   <span style="width: 118px"></span>
   <span>
-    {{#paper-button onClick=(action 'firstPage')}}{{paper-icon 'first_page' size=90}}{{/paper-button}}
+    {{#paper-button}}{{paper-icon 'first_page' size=90}}{{/paper-button}}
     {{#paper-button}}{{paper-icon 'chevron_left' size=90}}{{/paper-button}}
     {{#paper-button}}{{paper-icon 'chevron_right' size=90}}{{/paper-button}}
     {{#paper-button}}{{paper-icon 'last_page' size=90}}{{/paper-button}}
   </span>
   <span>
-    <hr />
-
-    {{model.pages.length}}
-    <h1>{{model.book.id}}</h1>
-    <hr />
     {{#paper-button onClick=(action 'newPage' book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
   </span>
+</span>
+<span id='page-numbers'>
+  {{#each model.pages as |page index| }}
+    {{#link-to 'books.book.pages.page' page}}{{increment index}}{{/link-to}}
+  {{/each}}
 </span>
