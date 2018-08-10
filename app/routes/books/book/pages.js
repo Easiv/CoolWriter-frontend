@@ -10,7 +10,5 @@ export default Route.extend({
       }),
       book: this.modelFor('books.book')
     });
-    console.log(this.modelFor('books.book').get('id'));
-    console.log('tu jestem');
   }
 });
