@@ -8,6 +8,6 @@ export default Model.extend({
   author: attr('string'),
   userEmail: attr('string'),
   description: attr('string'),
-  pageCount: attr('number'),
+  pageCount: attr('number', { defaultValue: 0 }),
   pages: hasMany('page')
 });

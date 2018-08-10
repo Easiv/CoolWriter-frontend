@@ -1,17 +1,17 @@
 <div class="layout-row layout-xs-column layout-wrap bookShelf">
-<span class="plusIcon">
-  {{#link-to 'books.new'}}
-    {{#paper-card data-test-create-book-button class="bookCard" as |card|}}
-      {{#card.content}}
-        {{#link-to 'books.new'}}{{paper-icon data-test-create-book-button 'add_box' size=200 accent=true}}{{/link-to}}
-        <span class="newBook">{{t 'book.new'}}</span>
-      {{/card.content}}
-    {{/paper-card}}
-  {{/link-to}}
+  <span class="plusIcon">
+    {{#link-to 'books.new'}}
+      {{#paper-card data-test-create-book-button class="bookCard" as |card|}}
+        {{#card.content}}
+          {{#link-to 'books.new'}}{{paper-icon data-test-create-book-button 'add_box' size=200 accent=true}}{{/link-to}}
+          <span class="newBook">{{t 'book.new'}}</span>
+        {{/card.content}}
+      {{/paper-card}}
+    {{/link-to}}
   </span>
-
+  
   {{#each books as |book index|}}
-    <span data-test-book>
+    <span data-test-book class="editHover">
       {{#paper-card class="bookCard" as |card|}}
         {{card.image src=book.cover alt=(t 'image.display.fail') title=book.title class="bookCover"}}
         {{#card.title as |title|}}
@@ -21,14 +21,12 @@
           {{/title.text}}
         {{/card.title}}
         {{#card.content}}
-          <p class="descScroll">
-            {{book.description}}
-          </p>
+          <p class="descScroll">{{book.description}}</p>
           <p>{{book.userEmail}}</p>
         {{/card.content}}
         {{#card.actions}}
           {{#link-to 'books.book.pages' book}}{{#paper-button data-test-write-button iconButton=true raised=true}}{{paper-icon 'library_books'}}{{/paper-button}}{{/link-to}}
-          {{#paper-button data-test-delete-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}
+          <a>{{#paper-button data-test-delete-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}</a>
           {{#link-to 'books.book.edit' book}}{{#paper-button data-test-edit-button iconButton=true raised=true}}{{paper-icon 'edit'}}{{/paper-button}}{{/link-to}}
         {{/card.actions}}
       {{/paper-card}}
