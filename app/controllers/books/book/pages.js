@@ -12,10 +12,6 @@ export default Controller.extend({
   family: 'Roboto',
   size: 16,
 
-  // book: computed('session.user.email', function() {
-  //   this._loadBooks();
-  // })
-
   switchLight() {
     this.toggleProperty('lighted');
   },
@@ -52,7 +48,8 @@ export default Controller.extend({
       this.store.createRecord('page', {
         number: 1,
         content: document.querySelector('#textArea').innerText,
-        book: this.model.book
+        book: this.model.book,
+        bookId: this.model.book.get('id')
       }).save();
     }
   }

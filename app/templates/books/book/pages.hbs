@@ -23,11 +23,6 @@
     {{#link-to 'books.book.pages.page' page}}{{#paper-button}}{{paper-icon 'navigate_next' size=90}}{{/paper-button}}{{/link-to}}
   </span>
   <span>
-    <hr />
-
-    {{model.pages.length}}
-    <h1>{{model.book.id}}</h1>
-    <hr />
     {{#paper-button onClick=(action 'newPage' book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
   </span>
 </span>

@@ -3,10 +3,6 @@ import { find } from '@ember/test-helpers';
 
 export default create({
 
-  createBook() {
-    server.create('book', 1);
-  },
-
   areaContent() {
     return find(this.textArea).innerHTML;
   },
@@ -19,8 +15,8 @@ export default create({
     return find(this.textArea).style.fontFamily;
   },
 
-  toggleHover() {
-    return document.querySelector('.bookShelf').children[1].classList.remove('editHover');
+  toggleHover(pane) {
+    return document.querySelector('.bookShelf').children[pane].classList.remove('editHover');
   },
 
   textArea: '[data-test-text-area]',
