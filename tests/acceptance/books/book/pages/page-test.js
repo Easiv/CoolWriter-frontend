@@ -13,7 +13,6 @@ module('Acceptance | books/pages/page', function(hooks) {
     // setup
     // visit route with specific book/page
     // try to highlight text and check if it is highlighted properly
-    //
     // seperate spec for "+"
 
 
@@ -22,7 +21,6 @@ module('Acceptance | books/pages/page', function(hooks) {
     await page.visitBooks();
     await page.toggleHover(1);
     await page.clickWrite();
-    //debugger;
     await pauseTest();
     await page.create();
     await page.fillTextArea('fancy test text');
