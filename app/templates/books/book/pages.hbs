@@ -30,6 +30,6 @@
 </span>
 <span id='page-numbers'>
   {{#each model.pages as |page index| }}
-    {{#link-to 'books.book.pages.page' page}}{{increment index}}{{/link-to}}
+    {{#link-to 'books.book.pages.page' page}}<span>{{increment index}}</span>{{/link-to}}
   {{/each}}
 </span>

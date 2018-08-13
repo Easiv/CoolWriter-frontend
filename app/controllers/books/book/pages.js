@@ -45,11 +45,17 @@ export default Controller.extend({
       }
     },
     newPage() {
-      this.get('store').createRecord('page', {
-        number: 1,
-        content: '',
-        book: this.get('model.book')
-      }).save();
+      let globalPage;
+      let page = this.get('store').createRecord('page', {
+          number: 1,
+          content: '',
+          book: this.get('model.book')
+      })
+      page.save();
+
+      this.transitionToRoute('books.book.pages.page', page.id);
+      //document.querySelector('#textArea').innerText = "";
+
     }
   }
 });

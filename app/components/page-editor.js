@@ -1,15 +1,18 @@
-import Controller from '@ember/controller';
+import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
-export default Controller.extend({
+export default Component.extend({
   store: service(),
 
-  actions: {
+  keyPress() {
+    this.actions.savePage.call(this);
+  },
+
     savePage() {
       let content = document.querySelector('#textArea').innerText;
-      let page = this.get('model');
+      let page = this.get('page');
       page.set('content', content);
       page.save();
+      console.log('saved');
     }
-  }
 });
