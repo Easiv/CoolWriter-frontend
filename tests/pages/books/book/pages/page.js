@@ -3,10 +3,6 @@ import { find } from '@ember/test-helpers';
 
 export default create({
 
-  createBook() {
-    server.create('book', 1);
-  },
-
   areaContent() {
     return find(this.textArea).innerHTML;
   },
@@ -19,8 +15,8 @@ export default create({
     return find(this.textArea).style.fontFamily;
   },
 
-  toggleHover() {
-    return document.querySelector('.bookShelf').children[1].classList.remove('editHover');
+  toggleHover(pane) {
+    return document.querySelector('.bookShelf').children[pane].classList.remove('editHover');
   },
 
   textArea: '[data-test-text-area]',
@@ -31,6 +27,8 @@ export default create({
   clickWrite: clickable('[data-test-write-button]'),
   clickHighlight: clickable('[data-test-highlight-button]'),
   clickClear: clickable('[data-test-clear-button]'),
+  create: clickable('data-test-add-page'),
+  click: clickable('data-test-page-number'),
 
   fillTextArea: fillable('[data-test-text-area]'),
   fillMarkInput: fillable('[data-test-highlight-input] input'),

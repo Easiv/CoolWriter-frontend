@@ -25,11 +25,11 @@
     {{#paper-button}}{{paper-icon 'last_page' size=90}}{{/paper-button}}
   </span>
   <span>
-    {{#paper-button onClick=(action 'newPage' book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
+    {{#paper-button data-test-add-page onClick=(action 'newPage' model.book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
   </span>
 </span>
 <span id='page-numbers'>
   {{#each model.pages as |page index| }}
-    {{#link-to 'books.book.pages.page' page}}<span>{{increment index}}</span>{{/link-to}}
+    {{#link-to 'books.book.pages.page' page}}<span data-test-page-number>{{increment index}}</span>{{/link-to}}
   {{/each}}
 </span>

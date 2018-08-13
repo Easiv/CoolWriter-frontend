@@ -44,18 +44,14 @@ export default Controller.extend({
         this.switchLight();
       }
     },
-    newPage() {
-      let globalPage;
+    newPage(book) {
       let page = this.get('store').createRecord('page', {
-          number: 1,
           content: '',
-          book: this.get('model.book')
+          bookId: book.get('id')
       })
       page.save();
 
-      this.transitionToRoute('books.book.pages.page', page.id);
-      //document.querySelector('#textArea').innerText = "";
-
+      this.transitionToRoute('books.book.pages.page', page.get('id'));
     }
   }
 });
