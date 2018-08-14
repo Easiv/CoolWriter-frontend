@@ -6,7 +6,8 @@ export default Component.extend({
 
   keyPress(event) {
     let page = this.get('page');
-    page.set('content', event.currentTarget.innerText);
+    let area = document.querySelector('#textArea').innerText;
+    page.set('content', area);
     page.save();
   }
 });

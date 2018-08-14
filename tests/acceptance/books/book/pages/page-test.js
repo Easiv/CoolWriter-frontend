@@ -10,19 +10,19 @@ module('Acceptance | books/pages/page', function(hooks) {
 
   test('Is it really highlighting though?', async function(assert) {
 
-    // setup
-    // visit route with specific book/page
-    // try to highlight text and check if it is highlighted properly
-    // seperate spec for "+"
+    // 1 setup
+    // 2 visit route with specific book/page
+    // 3 try to highlight text
+    // 4 check if it is highlighted properly
+    //  seperate spec for "+"
 
 
     await logUser();
     await server.create('book', 1);
-    await page.visitBooks();
-    await page.toggleHover(1);
-    await page.clickWrite();
-    await pauseTest();
-    await page.create();
+    await server.create('page', 1);
+
+    await page.visit();
+
     await page.fillTextArea('fancy test text');
     await page.fillMarkInput('es');
     await page.clickHighlight();
@@ -34,10 +34,8 @@ module('Acceptance | books/pages/page', function(hooks) {
 
     await logUser();
     await server.create('book', 1);
-    await page.visitBooks();
-    await page.toggleHover(1);
-    await page.clickWrite();
-    await page.create();
+    await server.create('page', 1);
+    await page.visit();
     await page.fillSizeInput(25);
 
     assert.equal(page.areaFontSize(), '25px');
@@ -47,10 +45,8 @@ module('Acceptance | books/pages/page', function(hooks) {
 
     await logUser();
     await server.create('book', 1);
-    await page.visitBooks();
-    await page.toggleHover(1);
-    await page.clickWrite();
-    await page.create();
+    await server.create('page', 1);
+    await page.visit();
     await page.fillFamilyInput('arial');
 
     assert.equal(page.areaFontFamily(), 'arial');
@@ -60,10 +56,8 @@ module('Acceptance | books/pages/page', function(hooks) {
 
     await logUser();
     await server.create('book', 1);
-    await page.visitBooks(1);
-    await page.toggleHover();
-    await page.clickWrite();
-    await page.create();
+    await server.create('page', 1);
+    await page.visit();
     await page.clickClear();
 
     assert.equal(page.areaContent(), '');
