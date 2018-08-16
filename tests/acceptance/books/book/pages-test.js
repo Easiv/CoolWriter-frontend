@@ -11,9 +11,9 @@ module('Acceptance | books/pages', function(hooks) {
   test('Is it really highlighting though?', async function(assert) {
 
     await logUser();
-    await page.createBook();
+    await server.create('book', 1);
     await page.visitBooks();
-    await page.toggleHover();
+    await page.toggleHover(1);
     await page.clickWrite();
     await page.fillTextArea('fancy test text');
     await page.fillMarkInput('es');
@@ -25,9 +25,9 @@ module('Acceptance | books/pages', function(hooks) {
   test('Does it change the font size?', async function(assert) {
 
     await logUser();
-    await page.createBook();
+    await server.create('book', 1);
     await page.visitBooks();
-    await page.toggleHover();
+    await page.toggleHover(1);
     await page.clickWrite();
     await page.fillSizeInput(25);
 
@@ -37,9 +37,9 @@ module('Acceptance | books/pages', function(hooks) {
   test('Does it change the font family?', async function(assert) {
 
     await logUser();
-    await page.createBook();
+    await server.create('book', 1);
     await page.visitBooks();
-    await page.toggleHover();
+    await page.toggleHover(1);
     await page.clickWrite();
     await page.fillFamilyInput('arial');
 
@@ -49,9 +49,9 @@ module('Acceptance | books/pages', function(hooks) {
   test('Is it really clearing the text?', async function(assert) {
 
     await logUser();
-    await page.createBook();
+    await server.create('book', 1);
     await page.visitBooks();
-    await page.toggleHover();
+    await page.toggleHover(1);
     await page.clickWrite();
     await page.clickClear();
 
