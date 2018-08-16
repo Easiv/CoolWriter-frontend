@@ -21,7 +21,6 @@ export default Controller.extend({
   }),
 
   actions: {
-    
     mutFamily(value) {
       this.set('family', value.replace(/[^\w ]/, ''));
     },
