@@ -27,7 +27,7 @@
         {{/card.content}}
         {{#card.actions}}
           {{#link-to 'books.book.pages' book}}{{#paper-button data-test-write-button iconButton=true raised=true}}{{paper-icon 'library_books'}}{{/paper-button}}{{/link-to}}
-          <a>{{#paper-button data-test-delete-button iconButton=true raised=true onClick=(action 'deleteBook' book)}}{{paper-icon 'delete'}}{{/paper-button}}</a>
+          <a>{{delete-button deleteBook=(action 'deleteBook' book)}}</a>
           {{#link-to 'books.book.edit' book}}{{#paper-button data-test-edit-button iconButton=true raised=true}}{{paper-icon 'edit'}}{{/paper-button}}{{/link-to}}
         {{/card.actions}}
       {{/paper-card}}
