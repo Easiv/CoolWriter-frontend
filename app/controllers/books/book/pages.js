@@ -47,7 +47,7 @@ export default Controller.extend({
     newPage() {
       this.get('store').createRecord('page', {
         content: '',
-        book: this.get('model.book')
+        book: this.get('model.book'),
         bookId: this.model.book.get('id')
       }).save();
     }
