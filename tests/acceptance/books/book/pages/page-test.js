@@ -13,7 +13,7 @@ module('Acceptance | books/pages/page', function(hooks) {
     await logUser();
     await server.create('book', 1);
     await server.create('page', 1);
-    await page.visit();
+    await page.visitFirstPage();
     await page.fillTextArea('fancy test text');
     await page.fillMarkInput('es');
     await page.clickHighlight();
@@ -26,7 +26,7 @@ module('Acceptance | books/pages/page', function(hooks) {
     await logUser();
     await server.create('book', 1);
     await server.create('page', 1);
-    await page.visit();
+    await page.visitFirstPage();
     await page.fillSizeInput(25);
 
     assert.equal(page.areaFontSize(), '25px');
@@ -37,7 +37,7 @@ module('Acceptance | books/pages/page', function(hooks) {
     await logUser();
     await server.create('book', 1);
     await server.create('page', 1);
-    await page.visit();
+    await page.visitFirstPage();
     await page.fillFamilyInput('arial');
 
     assert.equal(page.areaFontFamily(), 'arial');
@@ -48,7 +48,7 @@ module('Acceptance | books/pages/page', function(hooks) {
     await logUser();
     await server.create('book', 1);
     await server.create('page', 1);
-    await page.visit();
+    await page.visitFirstPage();
     await page.clickClear();
 
     assert.equal(page.areaContent(), '');

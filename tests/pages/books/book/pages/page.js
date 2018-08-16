@@ -22,7 +22,7 @@ export default create({
   textArea: '[data-test-text-area]',
   isMarked: 'fancy t<mark data-markjs="true">es</mark>t text',
 
-  visit: visitable('/books/1/pages/1'),
+  visitFirstPage: visitable('/books/1/pages/1'),
 
   clickWrite: clickable('[data-test-write-button]'),
   clickHighlight: clickable('[data-test-highlight-button]'),
