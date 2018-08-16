@@ -1,31 +1,9 @@
-<div id="pageButtons">
-  <span class="flexSpace">
-  </span>
-</div>
-<div id="pageInputs">
-  <span class="flexSpace">
-    {{page-features}}
-  </span>
-</div>
-
-<div class="layout-row layout-align-center-start container">
-  <img src="/bookImage.png" width="80%">
-  {{outlet}}
-</div>
-<span class="layout-row layout-align-space-between-center">
-  <span style="width: 118px"></span>
-  <span>
-    {{#paper-button}}{{paper-icon 'first_page' size=90}}{{/paper-button}}
-    {{#paper-button}}{{paper-icon 'chevron_left' size=90}}{{/paper-button}}
-    {{#paper-button}}{{paper-icon 'chevron_right' size=90}}{{/paper-button}}
-    {{#paper-button}}{{paper-icon 'last_page' size=90}}{{/paper-button}}
-  </span>
-  <span>
-    {{#paper-button data-test-add-page onClick=(action 'newPage' model.book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
-  </span>
-</span>
 <span id='page-numbers'>
   {{#each model.pages as |page index|}}
     {{#link-to 'books.book.pages.page' page}}<span data-test-page-number>{{increment index}}</span>{{/link-to}}
   {{/each}}
 </span>
+<span>
+  {{#paper-button data-test-add-page onClick=(action 'newPage' model.book)}}{{paper-icon 'add' size=70 accent=true}}{{/paper-button}}
+</span>
+{{outlet}}
