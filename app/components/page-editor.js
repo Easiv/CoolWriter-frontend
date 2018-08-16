@@ -10,46 +10,46 @@ export default Component.extend({
   size: 16,
   lighted: false,
 
-keyPress() {
-  let page = this.get('page');
-  let area = document.querySelector('#textArea').innerText;
-  page.set('content', area);
-  page.save();
-},
+  keyPress() {
+    let page = this.get('page');
+    let area = document.querySelector('#textArea').innerText;
+    page.set('content', area);
+    page.save();
+  },
 
-switchLight() {
-  this.toggleProperty('lighted');
-},
+  switchLight() {
+    this.toggleProperty('lighted');
+  },
 
-textAreaStyle: computed('family', 'size', function() {
-  return htmlSafe(`font-family: '${this.get('family')}'; font-size: ${this.get('size')}px;`);
-}),
+  textAreaStyle: computed('family', 'size', function() {
+    return htmlSafe(`font-family: '${this.get('family')}'; font-size: ${this.get('size')}px;`);
+  }),
 
-actions: {
-  highlight() {
-    let input = this.get('highlightText');
-    let context = document.querySelector('#textArea');
-    let instance = new Mark(context);
+  actions: {
+    highlight() {
+      let input = this.get('highlightText');
+      let context = document.querySelector('#textArea');
+      let instance = new Mark(context);
 
-    if (this.get('lighted')) {
-      instance.unmark();
-      this.switchLight();
-    } else {
-      instance.mark(input);
-      this.switchLight();
+      if (this.get('lighted')) {
+        instance.unmark();
+        this.switchLight();
+      } else {
+        instance.mark(input);
+        this.switchLight();
+      }
+    },
+
+    clearText() {
+      return document.querySelector('#textArea').innerText = '';
+    },
+
+    mutFamily(value) {
+      this.set('family', value.replace(/[^\w ]/, ''));
+    },
+
+    mutSize(value) {
+      this.set('size', value.replace(/\D/, ''));
     }
-  },
-
-  clearText() {
-    return document.querySelector('#textArea').innerText = "";
-  },
-
-  mutFamily(value) {
-    this.set('family', value.replace(/[^\w ]/, ''));
-  },
-
-  mutSize(value) {
-    this.set('size', value.replace(/\D/, ''));
   }
-}
 });

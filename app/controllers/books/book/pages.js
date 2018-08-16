@@ -8,11 +8,10 @@ export default Controller.extend({
   actions: {
     newPage(book) {
       let page = this.get('store').createRecord('page', {
-          content: '',
-          bookId: book.get('id')
-      })
+        content: '',
+        bookId: book.get('id')
+      });
       page.save();
-
       this.transitionToRoute('books.book.pages.page', page.get('id'));
     }
   }

@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupApplicationTest, pauseTest } from 'ember-qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import page from 'coolwriter/tests/pages/books/book/pages/page';
 import { logUser } from 'coolwriter/tests/helpers/login';
@@ -10,19 +10,10 @@ module('Acceptance | books/pages/page', function(hooks) {
 
   test('Is it really highlighting though?', async function(assert) {
 
-    // 1 setup
-    // 2 visit route with specific book/page
-    // 3 try to highlight text
-    // 4 check if it is highlighted properly
-    //  seperate spec for "+"
-
-
     await logUser();
     await server.create('book', 1);
     await server.create('page', 1);
-
     await page.visit();
-
     await page.fillTextArea('fancy test text');
     await page.fillMarkInput('es');
     await page.clickHighlight();
