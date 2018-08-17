@@ -1,0 +1,18 @@
+{{#if session.isAuthenticated}}
+
+  {{#link-to "admin" (query-params title=search)}}Wyszukaj {{/link-to}}
+  {{paper-input label='Search books' value=search onChange=(action (mut search))}}
+
+  {{#if title}}
+    {{#each filterBooks as |book index|}}
+
+        <br>{{increment index}}. {{book.title}} - {{book.userEmail}}
+
+    {{/each}}
+  {{/if}}
+
+{{else}}
+  <br>
+    <h1> Sorry, you need to be logged to do anything there </h1>
+  <br>
+{{/if}}

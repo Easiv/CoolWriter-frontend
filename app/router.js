@@ -7,7 +7,6 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-
   this.route('books', function() {
     this.route('new');
     this.route('book', { path: '/:book_id' }, function() {
@@ -20,7 +19,7 @@ Router.map(function() {
       });
     });
   });
-  this.route('users');
+  this.route('admin');
 });
 
 export default Router;
