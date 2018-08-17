@@ -1,3 +1,6 @@
+{{#link-to "books" (query-params title=search)}}Wyszukaj {{/link-to}}
+{{paper-input label='Search books' value=search onChange=(action (mut search))}}
+
 <div class="layout-row layout-xs-column layout-wrap bookShelf">
   <span class="plusIcon">
     {{#link-to 'books.new'}}
@@ -9,7 +12,32 @@
       {{/paper-card}}
     {{/link-to}}
   </span>
-  
+
+  {{#if title}}
+  {{#each filterBooks as |book index|}}
+    <span data-test-book class="editHover">
+      {{#paper-card class="bookCard" as |card|}}
+        {{card.image src=book.cover alt=(t 'image.display.fail') title=book.title class="bookCover"}}
+        {{#card.title as |title|}}
+          {{#title.text as |text|}}
+            {{#text.headline}}{{book.title}}{{/text.headline}}
+            {{#text.subhead}}{{book.author}}{{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        {{#card.content}}
+          <p class="descScroll">{{book.description}}</p>
+          <p>{{book.userEmail}}</p>
+        {{/card.content}}
+        {{#card.actions}}
+          {{#link-to 'books.book.pages' book}}{{#paper-button data-test-write-button iconButton=true raised=true}}{{paper-icon 'library_books'}}{{/paper-button}}{{/link-to}}
+          <a>{{delete-button deleteBook=(action 'deleteBook' book)}}</a>
+          {{#link-to 'books.book.edit' book}}{{#paper-button data-test-edit-button iconButton=true raised=true}}{{paper-icon 'edit'}}{{/paper-button}}{{/link-to}}
+        {{/card.actions}}
+      {{/paper-card}}
+    </span>
+  {{/each}}
+  {{/if}}
+
   {{#each books as |book index|}}
     <span data-test-book class="editHover">
       {{#paper-card class="bookCard" as |card|}}
