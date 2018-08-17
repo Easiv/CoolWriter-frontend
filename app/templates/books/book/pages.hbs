@@ -4,6 +4,6 @@
   {{/each}}
 </span>
 <span>
-  {{#paper-button data-test-add-page onClick=(action 'newPage' model.book)}}{{paper-icon 'add' size=70 accent=true}}{{/paper-button}}
+  {{#paper-button data-test-add-page onClick=(action 'newPage' model.book model.pages.length)}}{{paper-icon 'add' size=70 accent=true}}{{/paper-button}}
 </span>
 {{outlet}}
