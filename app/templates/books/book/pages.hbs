@@ -1,35 +1,9 @@
-<div id="pageButtons">
-  <span class="flexSpace">
-    {{#paper-button data-test-clear-button raised=true onClick=(action 'clearText')}}{{t 'clear.text'}}{{/paper-button}}
-    {{#paper-button data-test-highlight-button raised=true onClick=(action 'highlight')}}{{t 'highlight.text'}}{{/paper-button}}
-  </span>
-</div>
-<div id="pageInputs">
-  <span class="flexSpace">
-    {{paper-input data-test-family-input label=(t 'current.font') value=family onChange=(action "mutFamily") icon="font_download" id="fontFamily"}}
-    {{paper-input data-test-size-input label=(t 'font.size') value=size onChange=(action "mutSize") icon="format_size" id="fontSize"}}
-    {{paper-input data-test-highlight-input label=(t 'highlighted.text') value=highlightText onChange=(action (mut highlightText)) icon="highlight"}}
-  </span>
-</div>
-
-<div class="layout-row layout-align-center-start container">
-  <img src="/bookImage.png" width="80%">
-  <span contenteditable="true" id="textArea" style={{textAreaStyle}} data-test-text-area>{{outlet}}</span>
-</div>
-<span class="layout-row layout-align-space-between-center">
-  <span style="width: 118px"></span>
-  <span>
-    {{#paper-button}}{{paper-icon 'first_page' size=90}}{{/paper-button}}
-    {{#paper-button}}{{paper-icon 'chevron_left' size=90}}{{/paper-button}}
-    {{#paper-button}}{{paper-icon 'chevron_right' size=90}}{{/paper-button}}
-    {{#paper-button}}{{paper-icon 'last_page' size=90}}{{/paper-button}}
-  </span>
-  <span>
-    {{#paper-button onClick=(action 'newPage' book)}}{{paper-icon 'add' size=90 accent=true}}{{/paper-button}}
-  </span>
-</span>
 <span id='page-numbers'>
-  {{#each model.pages as |page index| }}
-    {{#link-to 'books.book.pages.page' page}}{{increment index}}{{/link-to}}
+  {{#each model.pages as |page index|}}
+    {{#link-to 'books.book.pages.page' page}}<span data-test-page-number>{{increment index}}</span>{{/link-to}}
   {{/each}}
 </span>
+<span>
+  {{#paper-button data-test-add-page onClick=(action 'newPage' model.book)}}{{paper-icon 'add' size=70 accent=true}}{{/paper-button}}
+</span>
+{{outlet}}
