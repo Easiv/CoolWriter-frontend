@@ -1,3 +1,2 @@
-export default function(server) {
-  server.create('book');
+export default function() {
 }

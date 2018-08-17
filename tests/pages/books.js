@@ -1,9 +1,14 @@
 import { create, visitable, clickable, count, contains } from 'ember-cli-page-object';
+import { find } from '@ember/test-helpers';
 
 export default create({
 
-  createBook() {
-    server.create('book', 1);
+  firstPane() {
+    return find('.bookShelf').children[0];
+  },
+
+  allPanes() {
+    return find('.bookShelf').children;
   },
 
   visit: visitable('/books'),
