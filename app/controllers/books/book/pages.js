@@ -45,10 +45,9 @@ export default Controller.extend({
       }
     },
     newPage() {
-      this.store.createRecord('page', {
-        number: 1,
-        content: document.querySelector('#textArea').innerText,
-        book: this.model.book,
+      this.get('store').createRecord('page', {
+        content: '',
+        book: this.get('model.book'),
         bookId: this.model.book.get('id')
       }).save();
     }

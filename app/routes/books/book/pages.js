@@ -4,8 +4,8 @@ import RSVP from 'rsvp';
 export default Route.extend({
   model() {
     return RSVP.hash({
-      pages: this.store.findAll('page', {
-        orderBy: 'book_id',
+      pages: this.store.query('page', {
+        orderBy: 'bookId',
         equalTo: this.modelFor('books.book').get('id')
       }),
       book: this.modelFor('books.book')
