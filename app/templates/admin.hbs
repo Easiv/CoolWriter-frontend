@@ -1,6 +1,4 @@
 {{#if session.isAuthenticated}}
-
-  {{#link-to "admin" (query-params title=search)}}Wyszukaj {{/link-to}}
   {{paper-input label='Search books' value=search onChange=(action (mut search))}}
 
   {{#if title}}
@@ -11,7 +9,25 @@
         <th>Page amount</th>
         <th>Owner</th>
       </tr>
-      {{#each filterBooks as |book index|}}
+      {{#each filterBooks as |book|}}
+        <tr>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.pageCount}}</td>
+          <td>{{book.userEmail}}</td>
+        </tr>
+      {{/each}}
+    </table>
+
+  {{else}}
+    <table class="bookTable">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Page amount</th>
+        <th>Owner</th>
+      </tr>
+      {{#each model as |book|}}
         <tr>
           <td>{{book.title}}</td>
           <td>{{book.author}}</td>
