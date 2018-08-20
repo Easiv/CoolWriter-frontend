@@ -4,11 +4,22 @@
   {{paper-input label='Search books' value=search onChange=(action (mut search))}}
 
   {{#if title}}
-    {{#each filterBooks as |book index|}}
-
-        <br>{{increment index}}. {{book.title}} - {{book.userEmail}}
-
-    {{/each}}
+    <table class="bookTable">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Page amount</th>
+        <th>Owner</th>
+      </tr>
+      {{#each filterBooks as |book index|}}
+        <tr>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.pageCount}}</td>
+          <td>{{book.userEmail}}</td>
+        </tr>
+      {{/each}}
+    </table>
   {{/if}}
 
 {{else}}
