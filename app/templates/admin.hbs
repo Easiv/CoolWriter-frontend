@@ -1,41 +1,47 @@
 {{#if session.isAuthenticated}}
+
   {{paper-input label='Search books' value=search onChange=(action (mut search))}}
 
-  {{#if title}}
-    <table class="bookTable">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Page amount</th>
-        <th>Owner</th>
-      </tr>
-      {{#each filterBooks as |book|}}
+  {{#if (can "search books")}}
+    {{#if title}}
+      <table class="bookTable">
         <tr>
-          <td>{{book.title}}</td>
-          <td>{{book.author}}</td>
-          <td>{{book.pageCount}}</td>
-          <td>{{book.userEmail}}</td>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Page amount</th>
+          <th>Owner</th>
         </tr>
-      {{/each}}
-    </table>
+        {{#each filterBooks as |book|}}
+          <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.pageCount}}</td>
+            <td>{{book.userEmail}}</td>
+          </tr>
+        {{/each}}
+      </table>
+
+    {{else}}
+      <table class="bookTable">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Page amount</th>
+          <th>Owner</th>
+        </tr>
+        {{#each model as |book|}}
+          <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.pageCount}}</td>
+            <td>{{book.userEmail}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    {{/if}}
 
   {{else}}
-    <table class="bookTable">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Page amount</th>
-        <th>Owner</th>
-      </tr>
-      {{#each model as |book|}}
-        <tr>
-          <td>{{book.title}}</td>
-          <td>{{book.author}}</td>
-          <td>{{book.pageCount}}</td>
-          <td>{{book.userEmail}}</td>
-        </tr>
-      {{/each}}
-    </table>
+    <h1> Sorry but u have to be admin to search books </h1>
   {{/if}}
 
 {{else}}

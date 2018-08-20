@@ -1,7 +1,9 @@
 import Controller from '@ember/controller';
 import { computed, observer } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+  session: service(),
   queryParams: ['title'],
   title: null,
   search: null,

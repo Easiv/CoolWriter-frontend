@@ -6,5 +6,6 @@ export default Model.extend({
   name: attr('string'),
   photoUrl: attr('string'),
   email: attr('string'),
-  books: hasMany('book')
+  books: hasMany('book'),
+  isAdmin: attr('boolean')
 });

@@ -19,6 +19,17 @@ export default Controller.extend({
     logout() {
       this.get('session').invalidate();
       this.get('store').unloadAll();
+    },
+
+    setAdmin() {
+      debugger;
+      let user = this.get('model');
+      let isAdmin = this.get('model.firstObject.isAdmin');
+      console.log(`Before set - current user isAdmin is ${isAdmin}`);
+      //debugger;
+      this.set(this.get('model.firstObject.isAdmin'), true);
+      console.log(`After set - current user isAdmin is ${isAdmin}`);
+      user.save();
     }
   }
 });

@@ -1,4 +1,3 @@
-
   {{#paper-toolbar as |toolbar|}}
      {{#toolbar.tools}}
        {{#link-to 'index'}}
@@ -23,6 +22,12 @@
 
      {{/toolbar.tools}}
    {{/paper-toolbar}}
+
+   {{#each model as |user|}}
+    <h3> {{user.name}} - isAdmin: <u>{{user.isAdmin}}</u> </h3>
+   {{/each}}
+
+   <button {{action 'setAdmin'}}> Make me admin L00l </button>
 
   <main>
      {{outlet}}
