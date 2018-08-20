@@ -21,14 +21,9 @@ export default Controller.extend({
       this.get('store').unloadAll();
     },
 
-    setAdmin() {
-      debugger;
+    toggleAdmin() {
       let user = this.get('model');
-      let isAdmin = this.get('model.firstObject.isAdmin');
-      console.log(`Before set - current user isAdmin is ${isAdmin}`);
-      //debugger;
-      this.set(this.get('model.firstObject.isAdmin'), true);
-      console.log(`After set - current user isAdmin is ${isAdmin}`);
+      this.toggleProperty('model.firstObject.isAdmin');
       user.save();
     }
   }

@@ -1,4 +1,4 @@
-  {{#paper-toolbar as |toolbar|}}
+{{#paper-toolbar as |toolbar|}}
      {{#toolbar.tools}}
        {{#link-to 'index'}}
          <h2>CoolWriter</h2>
@@ -27,7 +27,7 @@
     <h3> {{user.name}} - isAdmin: <u>{{user.isAdmin}}</u> </h3>
    {{/each}}
 
-   <button {{action 'setAdmin'}}> Make me admin L00l </button>
+   {{#paper-button raised=true onClick=(action 'toggleAdmin')}}Toggle Admin{{/paper-button}}
 
   <main>
      {{outlet}}
