@@ -19,8 +19,9 @@ export default Controller.extend({
     }
   }),
 
-  triggerSearch: observer('search', function() {
-    let title = this.get('search');
-    this.transitionToRoute({ queryParams: { title } });
-  })
+  actions: {
+    triggerSearch(title) {
+      this.set('title', title);
+    }
+  }
 });
