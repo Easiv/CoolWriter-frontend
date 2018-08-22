@@ -19,6 +19,12 @@ export default Controller.extend({
     logout() {
       this.get('session').invalidate();
       this.get('store').unloadAll();
+    },
+
+    toggleAdmin() {
+      let user = this.get('model');
+      this.toggleProperty('model.firstObject.isAdmin');
+      user.save();
     }
   }
 });

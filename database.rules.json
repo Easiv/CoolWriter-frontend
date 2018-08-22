@@ -7,6 +7,10 @@
     "users": {
       ".read": true,
       ".write": true
+    },
+    "pages": {
+      ".read": true,
+      ".write": true
     }
   }
 }

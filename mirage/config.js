@@ -1,6 +1,7 @@
 export default function() {
   this.resource('books');
   this.resource('pages');
+  this.resource('users');
   this.passthrough('https://coolwriter.eu.auth0.com/**');
 
   // These comments are here to help you get started. Feel free to delete them.

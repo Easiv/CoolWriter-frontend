@@ -1,0 +1,51 @@
+{{#if session.isAuthenticated}}
+
+  {{admin-input onChange=(action (mut title)) title=title}}
+
+  {{#if (can "search books")}}
+    {{#if title}}
+      <table class="bookTable">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Page amount</th>
+          <th>Owner</th>
+        </tr>
+        {{#each filterBooks as |book|}}
+          <tr data-test-admin-search-row>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.pageCount}}</td>
+            <td>{{book.userEmail}}</td>
+          </tr>
+        {{/each}}
+      </table>
+
+    {{else}}
+      <table class="bookTable">
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Page amount</th>
+          <th>Owner</th>
+        </tr>
+        {{#each model as |book|}}
+          <tr data-test-admin-search-row-else>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.pageCount}}</td>
+            <td>{{book.userEmail}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    {{/if}}
+
+  {{else}}
+    <h1> Sorry but u have to be admin to search books </h1>
+  {{/if}}
+
+{{else}}
+  <br>
+    <h1> Sorry, you need to be logged to do anything there </h1>
+  <br>
+{{/if}}
