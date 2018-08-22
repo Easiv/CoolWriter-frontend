@@ -1,6 +1,6 @@
 {{#if session.isAuthenticated}}
 
-  {{admin-input action="triggerSearch"}}
+  {{admin-input onChange=(action (mut title)) title=title}}
 
   {{#if (can "search books")}}
     {{#if title}}
@@ -12,7 +12,7 @@
           <th>Owner</th>
         </tr>
         {{#each filterBooks as |book|}}
-          <tr>
+          <tr data-test-admin-search-row>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
             <td>{{book.pageCount}}</td>
@@ -30,7 +30,7 @@
           <th>Owner</th>
         </tr>
         {{#each model as |book|}}
-          <tr>
+          <tr data-test-admin-search-row-else>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
             <td>{{book.pageCount}}</td>

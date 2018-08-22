@@ -11,17 +11,7 @@ export default Controller.extend({
   filterBooks: computed('title', function() {
     let title = this.get('title');
     if (title) {
-      let books = this.store.query('book', {
-        orderBy: 'title',
-        equalTo: title
-      });
-      return books;
+      return this.get('model').filterBy('title', title);
     }
-  }),
-
-  actions: {
-    triggerSearch(title) {
-      this.set('title', title);
-    }
-  }
+  })
 });
