@@ -38,7 +38,7 @@
     {{/each}}
   {{/if}}
 
-  {{#each books as |book index|}}
+  {{#each model as |book index|}}
     <span data-test-book class="editHover">
       {{#paper-card class="bookCard" as |card|}}
         {{card.image src=book.cover alt=(t 'image.display.fail') title=book.title class="bookCover"}}

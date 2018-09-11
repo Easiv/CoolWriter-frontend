@@ -6,7 +6,7 @@ export default Model.extend({
   cover: attr('string', { defaultValue: 'http://via.placeholder.com/200x300' }),
   title: attr('string'),
   author: attr('string'),
-  userEmail: attr('string'),
+  //  userEmail: attr('string'),
   description: attr('string'),
   pageCount: attr('number', { defaultValue: 0 }),
   pages: hasMany('page')

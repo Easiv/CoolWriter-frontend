@@ -12,8 +12,8 @@ export default Controller.extend({
         title: this.get('title'),
         author: this.get('author'),
         cover: this.get('cover'),
-        description: this.get('description'),
-        userEmail: this.get('session.data.authenticated.profile.email')
+        description: this.get('description')
+        //userEmail: this.get('session.data.authenticated.profile.email')
 
       });
       newBook.save().then(() => {
