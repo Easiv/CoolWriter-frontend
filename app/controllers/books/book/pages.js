@@ -3,13 +3,12 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   store: service(),
-  routing: service('-routing'),
 
   actions: {
     newPage(book, amount) {
       let page = this.get('store').createRecord('page', {
         content: '',
-        bookId: book.get('id')
+        book
       });
       page.save();
 
