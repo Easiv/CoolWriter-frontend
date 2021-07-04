@@ -22,9 +22,7 @@ export default Controller.extend({
     },
 
     toggleAdmin() {
-      let user = this.get('model');
-      this.toggleProperty('model.firstObject.isAdmin');
-      user.save();
+      this.get('model').forEach((user) => user.toggleProperty('isAdmin'));
     }
   }
 });
